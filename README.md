@@ -21,21 +21,37 @@
 - 💾 **Team JSON Presets & Context Menu:** Right-click custom presets to **Edit in Studio**, **Duplicate**, **Export .JSON**, or **Delete**.
 - 🚀 **Zero Playback Lag:** Generates a lightweight PNG overlay clip with 0ms performance impact during timeline playback.
 
+## 📦 Quick Installation (Instalação Rápida)
+
+> 💡 **Instalador Universal ZXP (Windows & macOS):**  
+> O pacote **`SafeZones.zxp`** é compatível com **Windows e macOS** (Intel & Apple Silicon M1-M4) e instala automaticamente **ambos os painéis**:  
+> 1. **`Safe Zones`** (Painel de timeline)  
+> 2. **`Safe Zones Studio`** (Bancada vetorial completa)  
+> Basta arrastar o `SafeZones.zxp` para o [**ZXP Installer**](https://zxpinstaller.com/) ou [**Anastasiy’s Extension Manager**](https://install.anastasiy.com/)!
+
 ---
 
-## 📦 Quick Installation (60 Seconds)
+### 📦 Método 1: Instalador ZXP (Recomendado para Windows & Mac)
 
-### 🪟 Windows Setup
+1. Baixe o [**SafeZones.zxp**](https://github.com/Bielicoman/safezones/raw/main/SafeZones.zxp).
+2. Abra o [**ZXP Installer**](https://zxpinstaller.com/) ou [**Anastasiy's Extension Manager**](https://install.anastasiy.com/).
+3. Arraste e solte o arquivo `SafeZones.zxp` na janela do instalador.
+4. Abra o Premiere Pro e acesse:
+   - `Janela` ➔ `Extensões` ➔ **`Safe Zones`**
+   - `Janela` ➔ `Extensões` ➔ **`Safe Zones Studio`**
 
-1. [**Download the latest ZIP**](https://github.com/Bielicoman/safezones/archive/refs/heads/main.zip) and extract it.
-2. Press <kbd>Win</kbd> + <kbd>R</kbd>, paste `%APPDATA%\Adobe\CEP\extensions\` and press **Enter**.
-3. Copy the `com.alexascencio.safezones` folder into this directory.
-4. Run this one-liner in **PowerShell** to enable developer extensions:
+---
+
+### 🪟 Método 2: Instalação Manual no Windows
+
+1. [**Baixe o ZIP**](https://github.com/Bielicoman/safezones/archive/refs/heads/main.zip) e extraia os arquivos.
+2. Dê **2 cliques** no arquivo **`Instalar-Windows.bat`** (ele copia para a pasta CEP e ativa o modo desenvolvedor automaticamente!).
+3. *Ou faça manualmente:* Pressione <kbd>Win</kbd> + <kbd>R</kbd>, acesse `%APPDATA%\Adobe\CEP\extensions\` e copie a pasta `com.alexascencio.safezones`.
+4. Execute no **PowerShell**:
    ```powershell
    reg add "HKEY_CURRENT_USER\Software\Adobe\CSXS.11" /v PlayerDebugMode /t REG_SZ /d "1" /f
    ```
-5. Launch **Adobe Premiere Pro** and open:
-   `Window` ➔ `Extensions` ➔ `Safe Zones`
+5. Abra o Premiere Pro em: `Janela` ➔ `Extensões` ➔ `Safe Zones`.
 
 ---
 
