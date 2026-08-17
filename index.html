@@ -15,6 +15,10 @@
   <meta property="og:image" content="https://raw.githubusercontent.com/Bielicoman/safezones/main/art/reels-1.png">
   <meta name="twitter:card" content="summary_large_image">
 
+  <!-- Favicon com Logotipo Oficial -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.svg">
+
   <!-- Fontes Google: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -116,7 +120,13 @@
           
           <div class="mock-topbar">
             <div class="flex items-center gap-2">
-              <span class="mock-brand-title">SAFE<span class="text-cyan">ZONES</span> <span style="color:#64748b; font-size:11px;">v1.0</span></span>
+              <div class="brand-icon" style="width:24px;height:24px;border-radius:6px;">
+                <svg viewBox="0 0 24 24" fill="none" width="14" height="14">
+                  <path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3" stroke="#00e5ff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="12" cy="12" r="2.5" fill="#00e5ff"/>
+                </svg>
+              </div>
+              <span class="mock-brand-title">SAFE<span class="text-cyan">ZONES</span> <span style="color:#00e5ff; font-size:10px; font-weight:700; background:rgba(0,229,255,0.12); padding:1px 5px; border-radius:3px; border:1px solid rgba(0,229,255,0.3);">PRO</span></span>
             </div>
             <div class="mock-status-pill">
               <span class="mock-status-dot"></span>
@@ -799,7 +809,15 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-col-left">
-        <span class="brand-name">SAFE<span class="text-cyan">ZONES</span></span>
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+          <div class="brand-icon" style="width:26px;height:26px;border-radius:6px;">
+            <svg viewBox="0 0 24 24" fill="none" width="14" height="14">
+              <path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3" stroke="#00e5ff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="12" cy="12" r="2.5" fill="#00e5ff"/>
+            </svg>
+          </div>
+          <span class="brand-name">SAFE<span class="text-cyan">ZONES</span> <span class="brand-sub">PRO</span></span>
+        </div>
         <p class="footer-author-credit">
           Software Open Source sob <a href="https://github.com/Bielicoman/safezones/blob/main/LICENSE" target="_blank" rel="noopener">Licença MIT</a>.<br>
           Criado por <strong>Alex Ascencio</strong> para editores do mundo todo.
