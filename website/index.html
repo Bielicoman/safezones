@@ -1,518 +1,592 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Safe Zones for Adobe Premiere Pro — Open Source Framing & Social Overlay Studio</title>
-  <meta name="description" content="The ultimate free, open-source safe zones overlay and vector studio plugin for Adobe Premiere Pro. Calibrated for TikTok, Instagram Reels, YouTube Shorts, Letterbox, and Framing Grids.">
-  <meta name="keywords" content="Adobe Premiere Pro, Safe Zones Plugin, Social Media Overlay, TikTok Safe Zone, Instagram Reels Framing, YouTube Shorts Safe Area, CEP Extension, Open Source Premiere Plugin">
+  <title>Safe Zones para Adobe Premiere Pro — Enquadramento e Overlays de Redes Sociais</title>
+  <meta name="description" content="Safe zones oficiais de TikTok, Instagram Reels, YouTube Shorts, Letterbox e estúdio de vetor integrado para o Premiere Pro. Sem pesar a timeline, 100% grátis e open source.">
+  <meta name="keywords" content="Adobe Premiere Pro, Plugin Premiere, Safe Zones, TikTok Safe Zone, Instagram Reels, YouTube Shorts, Overlays Sociais, Extensão CEP, Open Source">
   <meta name="author" content="Alex Ascencio">
 
   <!-- OpenGraph / Social Meta Tags -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Safe Zones for Adobe Premiere Pro — Open Source Framing Studio">
-  <meta property="og:description" content="Stop guessing mobile UI safe areas in Premiere Pro. Pixel-perfect TikTok, Reels, Shorts overlays and full vector Studio in 1 click.">
-  <meta property="og:image" content="https://raw.githubusercontent.com/alexascencio/safe-zones/main/assets/banner.png">
+  <meta property="og:title" content="Safe Zones para Premiere Pro — Enquadramento Perfeito">
+  <meta property="og:description" content="Nunca mais corte rosto ou legenda. Safe zones oficiais calibradas para TikTok, Reels, Shorts e Studio Vetorial em 1 clique.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/Bielicoman/safezones/main/art/reels-1.png">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Google Fonts: IBM Plex Sans & JetBrains Mono & Outfit -->
+  <!-- Fontes Google: Syne, Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/site.css">
 </head>
-<body class="bg-obsidian text-slate-100 antialiased selection:bg-cyan-500 selection:text-black">
+<body>
 
-  <!-- ── Header & Navigation ── -->
+  <!-- ── Header & Navegação ── -->
   <header class="site-header">
-    <div class="header-container">
-      <a href="#" class="brand-logo" title="Safe Zones for Adobe Premiere Pro">
-        <div class="logo-mark">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="logo-icon">
+    <div class="container header-inner">
+      
+      <a href="#" class="brand" title="Safe Zones for Adobe Premiere Pro">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="w-5 h-5">
             <rect x="3" y="3" width="18" height="18" rx="3" stroke="#00e5ff"/>
             <path d="M7 3v4M17 3v4M7 17v4M17 17v4M3 7h4M17 7h4M3 17h4M17 17h4" stroke="#ffe600"/>
             <circle cx="12" cy="12" r="3" stroke="#ff2d75"/>
           </svg>
         </div>
-        <div class="logo-text">
-          <span class="logo-title">SAFE<span class="logo-accent">ZONES</span></span>
-          <span class="logo-tag">for Premiere Pro</span>
+        <div>
+          <span class="brand-name">SAFE<span class="text-cyan">ZONES</span></span>
+          <span class="brand-sub">para Premiere Pro</span>
         </div>
       </a>
 
       <nav class="nav-links">
-        <a href="#simulator" class="nav-link">Live Demo</a>
-        <a href="#features" class="nav-link">Features</a>
-        <a href="#studio" class="nav-link">Zone Studio Pro</a>
-        <a href="#install" class="nav-link">Install Guide</a>
-        <a href="#shortcuts" class="nav-link">Shortcuts</a>
+        <a href="#simulador" class="nav-link">Simulador</a>
+        <a href="#tutorial" class="nav-link">Como Usar</a>
+        <a href="#recursos" class="nav-link">Recursos</a>
+        <a href="#studio" class="nav-link">Zone Studio</a>
+        <a href="#instalacao" class="nav-link">Instalação</a>
+        <a href="#atalhos" class="nav-link">Atalhos</a>
         <a href="#faq" class="nav-link">FAQ</a>
       </nav>
 
       <div class="header-actions">
-        <a href="https://github.com/Bielicoman/safezones" target="_blank" rel="noopener" class="btn-github" title="Star on GitHub">
-          <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        <a href="https://github.com/Bielicoman/safezones" target="_blank" rel="noopener" class="btn-nav-gh" title="Ver no GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
           <span>Star ⭐</span>
         </a>
-        <a href="#install" class="btn-primary">Download Free</a>
+        <a href="#instalacao" class="btn-3d btn-3d-cyan" style="padding:8px 16px; font-size:13px;">Baixar Grátis</a>
       </div>
+
     </div>
   </header>
 
   <!-- ── Hero Section ── -->
-  <section class="hero-section">
-    <div class="hero-glow-bg"></div>
-    <div class="hero-content">
+  <section class="hero">
+    <div class="container">
       
-      <div class="hero-badge-pill">
-        <span class="pill-dot"></span>
-        <span class="pill-text">Open Source · Adobe Premiere Pro 2020 – 2025+ Compatible</span>
-        <span class="pill-tag">MIT License</span>
+      <div class="hero-copy">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          <span>Adobe Premiere Pro · Open Source · MIT</span>
+        </div>
+
+        <h1 class="hero-title">
+          Enquadramento perfeito.<br>
+          <span class="gradient-text">Nunca mais corte rosto ou legenda.</span>
+        </h1>
+
+        <p class="hero-sub">
+          Safe zones oficiais de <strong>TikTok, Reels e Shorts</strong>, letterbox cinematográfico e um estúdio vetorial completo dentro do Premiere. Sem pesar a timeline, em 1 clique.
+        </p>
+
+        <div class="hero-ctas">
+          <a href="#instalacao" class="btn-3d btn-3d-cyan">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            <span>Baixar Plugin (.ZIP)</span>
+          </a>
+          <a href="#simulador" class="btn-3d btn-3d-dark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="18" height="18"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span>Testar no Navegador</span>
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <span class="hero-meta-item">⚡ 0ms de lag de timeline</span>
+          <span>·</span>
+          <span class="hero-meta-item">🪟 Windows & 🍎 Mac M1/M2/M3/M4</span>
+          <span>·</span>
+          <span class="hero-meta-item">🎬 Premiere Pro 2020 a 2025+</span>
+        </div>
       </div>
 
-      <h1 class="hero-headline">
-        Master Every Framing.<br>
-        <span class="gradient-text">Never Cut Off a Subject Again.</span>
-      </h1>
+      <!-- Demonstração Real do Painel Safe Zones (O Argumento Visual) -->
+      <div class="hero-panel-wrapper">
+        <div class="plugin-mock-window">
+          
+          <div class="mock-topbar">
+            <div class="flex items-center gap-2">
+              <span class="mock-brand-title">SAFE<span class="text-cyan">ZONES</span> <span style="color:#64748b; font-size:11px;">v1.0</span></span>
+            </div>
+            <div class="mock-status-pill">
+              <span class="mock-status-dot"></span>
+              <span>ON AIR</span>
+            </div>
+            <span class="mock-res-badge">3840×2160 (4K UHD)</span>
+          </div>
 
-      <p class="hero-subline">
-        The definitive safe zones, social overlay calibrated for TikTok, Reels, Shorts & built-in vector <strong>Zone Studio Pro</strong> for Adobe Premiere Pro. Zero timeline mess, 1-click live lock.
-      </p>
+          <div class="mock-body">
+            
+            <div class="mock-controls-col">
+              <div class="mock-quick-slots">
+                <span class="mock-slot-btn">P1 TikTok</span>
+                <span class="mock-slot-btn active">P2 Reels</span>
+                <span class="mock-slot-btn">P3 Shorts</span>
+              </div>
 
-      <div class="hero-cta-group">
-        <a href="#install" class="btn-hero-primary">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="w-5 h-5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-          <span>Download Free Plugin (.ZIP)</span>
-        </a>
-        <a href="#simulator" class="btn-hero-secondary">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          <span>Try Interactive Web Demo</span>
-        </a>
-      </div>
+              <div class="mock-drawer-card">
+                <span>Aspect & Letterbox</span>
+                <span class="badge">9:16 (100%)</span>
+              </div>
+              <div class="mock-drawer-card">
+                <span>Social Safe Zones</span>
+                <span class="badge">Instagram Reels</span>
+              </div>
+              <div class="mock-drawer-card">
+                <span>Composition & Grids</span>
+                <span class="badge">Terços + Phi</span>
+              </div>
+              <div class="mock-drawer-card">
+                <span>Broadcast & Display</span>
+                <span class="badge">Action 90%</span>
+              </div>
+            </div>
 
-      <div class="hero-metrics-strip">
-        <div class="metric-item">
-          <span class="metric-val">100%</span>
-          <span class="metric-lbl">Free & Open Source</span>
-        </div>
-        <div class="metric-sep"></div>
-        <div class="metric-item">
-          <span class="metric-val">0ms</span>
-          <span class="metric-lbl">Timeline Playback Lag</span>
-        </div>
-        <div class="metric-sep"></div>
-        <div class="metric-item">
-          <span class="metric-val">6+</span>
-          <span class="metric-lbl">Social Platform Presets</span>
-        </div>
-        <div class="metric-sep"></div>
-        <div class="metric-item">
-          <span class="metric-val">12+</span>
-          <span class="metric-lbl">Vector Studio Tools</span>
+            <div class="mock-preview-col">
+              <div class="mock-canvas-sim">
+                <div class="mock-thirds-lines"></div>
+                <div class="mock-safe-box"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="mock-footbar">
+            <span>Instagram Reels + 1 guide</span>
+            <span class="mock-credit">Criado por Alex Ascencio</span>
+          </div>
+
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ── Interactive Live Simulator (Browser Demo) ── -->
-  <section id="simulator" class="simulator-section">
-    <div class="section-header text-center">
-      <span class="section-eyebrow">TRY IT IN YOUR BROWSER</span>
-      <h2 class="section-title">Interactive Safe Zones Simulator</h2>
-      <p class="section-desc">Experience how Safe Zones overlays and guides fit over any video format in real time.</p>
-    </div>
-
-    <div class="simulator-container">
+  <!-- ── Simulador Interativo Web ── -->
+  <section id="simulador" class="sim-section">
+    <div class="container">
       
-      <!-- Toolbar do Simulador Web -->
-      <div class="sim-toolbar">
-        <div class="sim-toolbar-group">
-          <span class="sim-group-label">Sequence Ratio:</span>
-          <div class="sim-btn-toggle" id="sim-ratio-toggles">
-            <button type="button" class="sim-btn active" data-ratio="9:16">9:16 (Shorts/Reels)</button>
-            <button type="button" class="sim-btn" data-ratio="16:9">16:9 (Cinema/YouTube)</button>
-            <button type="button" class="sim-btn" data-ratio="1:1">1:1 (Square Feed)</button>
-            <button type="button" class="sim-btn" data-ratio="4:5">4:5 (Instagram Portrait)</button>
-          </div>
+      <div class="section-head">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          <span>EXPERIMENTE ONLINE</span>
         </div>
-
-        <div class="sim-toolbar-group">
-          <span class="sim-group-label">Social Platform Overlay:</span>
-          <div class="sim-btn-toggle" id="sim-social-toggles">
-            <button type="button" class="sim-btn active" data-social="tiktok">🎵 TikTok</button>
-            <button type="button" class="sim-btn" data-social="reels">📸 Reels</button>
-            <button type="button" class="sim-btn" data-social="shorts">▶️ Shorts</button>
-            <button type="button" class="sim-btn" data-social="stories">⭕ Stories</button>
-            <button type="button" class="sim-btn" data-social="none">Clean None</button>
-          </div>
-        </div>
-
-        <div class="sim-toolbar-group">
-          <span class="sim-group-label">Composition Grids:</span>
-          <div class="sim-checkbox-group">
-            <label class="sim-checkbox-label">
-              <input type="checkbox" id="sim-chk-thirds" checked>
-              <span>Thirds Grid (3x3)</span>
-            </label>
-            <label class="sim-checkbox-label">
-              <input type="checkbox" id="sim-chk-phi">
-              <span>Golden Ratio</span>
-            </label>
-            <label class="sim-checkbox-label">
-              <input type="checkbox" id="sim-chk-broadcast" checked>
-              <span>Broadcast Safe</span>
-            </label>
-            <label class="sim-checkbox-label">
-              <input type="checkbox" id="sim-chk-letterbox">
-              <span>Letterbox Matte</span>
-            </label>
-          </div>
-        </div>
+        <h2 class="title-lg">Simulador Interativo no Navegador</h2>
+        <p class="desc-lg">Veja como o overlay e as margens de segurança funcionam em tempo real antes de abrir o Premiere.</p>
       </div>
 
-      <!-- Área de Visualização do Canvas do Simulador -->
-      <div class="sim-viewport-frame">
-        <div class="sim-canvas-stage" id="sim-canvas-stage">
-          <canvas id="sim-canvas"></canvas>
-          <div class="sim-overlay-info">
-            <span id="sim-readout-res" class="sim-tag">1080×1920 (9:16)</span>
-            <span id="sim-readout-platform" class="sim-tag cyan">TikTok UI Calibrated</span>
-            <span id="sim-readout-status" class="sim-tag green">● ON AIR SIMULATED</span>
+      <div class="sim-box-3d">
+        
+        <div class="sim-toolbar-stack">
+          
+          <div class="sim-row">
+            <span class="sim-lbl">Proporção da Sequência:</span>
+            <div class="sim-btn-group" id="sim-ratio-toggles">
+              <button type="button" class="sim-chip-3d active" data-ratio="9:16">9:16 (Shorts / Reels)</button>
+              <button type="button" class="sim-chip-3d" data-ratio="16:9">16:9 (YouTube / Cinema)</button>
+              <button type="button" class="sim-chip-3d" data-ratio="1:1">1:1 (Feed Quadrado)</button>
+              <button type="button" class="sim-chip-3d" data-ratio="4:5">4:5 (Retrato Instagram)</button>
+            </div>
+          </div>
+
+          <div class="sim-row">
+            <span class="sim-lbl">Plataforma Social:</span>
+            <div class="sim-btn-group" id="sim-social-toggles">
+              <button type="button" class="sim-chip-3d active" data-social="tiktok">🎵 TikTok</button>
+              <button type="button" class="sim-chip-3d" data-social="reels">📸 Reels</button>
+              <button type="button" class="sim-chip-3d" data-social="shorts">▶️ Shorts</button>
+              <button type="button" class="sim-chip-3d" data-social="stories">⭕ Stories</button>
+              <button type="button" class="sim-chip-3d" data-social="none">Limpo (Sem UI)</button>
+            </div>
+          </div>
+
+          <div class="sim-row">
+            <span class="sim-lbl">Guias de Composição:</span>
+            <div class="sim-checks">
+              <label class="sim-check-label">
+                <input type="checkbox" id="sim-chk-thirds" checked>
+                <span>Regra dos Terços</span>
+              </label>
+              <label class="sim-check-label">
+                <input type="checkbox" id="sim-chk-phi">
+                <span>Proporção Áurea (Phi)</span>
+              </label>
+              <label class="sim-check-label">
+                <input type="checkbox" id="sim-chk-broadcast" checked>
+                <span>Broadcast Safe (90%/80%)</span>
+              </label>
+              <label class="sim-check-label">
+                <input type="checkbox" id="sim-chk-letterbox">
+                <span>Máscara Letterbox</span>
+              </label>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="sim-stage-frame">
+          <div class="sim-stage-inner">
+            <canvas id="sim-canvas"></canvas>
+            <div class="sim-readout-strip">
+              <span id="sim-readout-res" class="tag-readout">1080×1920 (9:16)</span>
+              <span id="sim-readout-platform" class="tag-readout cyan">TIKTOK SAFE AREA</span>
+              <span class="tag-readout green">● ON AIR SIMULADO</span>
+            </div>
           </div>
         </div>
+
+        <div class="sim-bottom-bar">
+          <div class="sim-ctrl-group">
+            <span>Cor das Linhas:</span>
+            <div class="sim-colors" id="sim-color-swatches">
+              <button type="button" class="color-dot-btn active" data-color="#ffffff" style="background:#ffffff" title="Branco"></button>
+              <button type="button" class="color-dot-btn" data-color="#00e5ff" style="background:#00e5ff" title="Ciano Elétrico"></button>
+              <button type="button" class="color-dot-btn" data-color="#ffe600" style="background:#ffe600" title="Amarelo Neon"></button>
+              <button type="button" class="color-dot-btn" data-color="#ff2d75" style="background:#ff2d75" title="Magenta"></button>
+              <button type="button" class="color-dot-btn" data-color="#4fe0a0" style="background:#4fe0a0" title="Verde"></button>
+            </div>
+          </div>
+
+          <div class="sim-ctrl-group">
+            <span>Opacidade das Guias:</span>
+            <input type="range" id="sim-guide-alpha" min="10" max="100" value="100" class="sim-slider-input">
+            <b id="sim-guide-alpha-val" class="mono">100%</b>
+          </div>
+
+          <div class="sim-ctrl-group">
+            <span>Opacidade da Arte:</span>
+            <input type="range" id="sim-art-alpha" min="10" max="100" value="95" class="sim-slider-input">
+            <b id="sim-art-alpha-val" class="mono">95%</b>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Controles de Cor e Opacidade do Simulador -->
-      <div class="sim-footer-controls">
-        <div class="sim-control-item">
-          <span>Guide Line Color:</span>
-          <div class="sim-color-swatches" id="sim-color-swatches">
-            <button type="button" class="sim-color-btn active" data-color="#ffffff" style="background:#ffffff" title="White"></button>
-            <button type="button" class="sim-color-btn" data-color="#00e5ff" style="background:#00e5ff" title="Electric Cyan"></button>
-            <button type="button" class="sim-color-btn" data-color="#ffe600" style="background:#ffe600" title="Neon Yellow"></button>
-            <button type="button" class="sim-color-btn" data-color="#ff2d75" style="background:#ff2d75" title="Vivid Magenta"></button>
-            <button type="button" class="sim-color-btn" data-color="#4fe0a0" style="background:#4fe0a0" title="Phosphor Green"></button>
+    </div>
+  </section>
+
+  <!-- ── Tutorial: Como Usar o Plugin em 4 Passos ── -->
+  <section id="tutorial" class="tutorial-section">
+    <div class="container">
+      
+      <div class="section-head">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          <span>TUTORIAL PASSO A PASSO</span>
+        </div>
+        <h2 class="title-lg">Como Usar o Safe Zones no Premiere</h2>
+        <p class="desc-lg">Sem complicações. Veja como elevar o nível das suas edições em 4 passos simples.</p>
+      </div>
+
+      <div class="steps-timeline-grid">
+        
+        <div class="step-item-card">
+          <div class="step-badge-num">01</div>
+          <h3 class="step-heading">Ligue com 1 Clique (ON AIR)</h3>
+          <p class="step-body-txt">
+            Abra o painel em <code>Janela > Extensões > Safe Zones</code>. Clique no botão <strong>ON AIR</strong>. O plugin lê a resolução da sequência e cria uma faixa V4 travada.
+          </p>
+          <div class="step-preview-box">
+            <code>Sequência: 1080×1920 ➔ V4 Travado 🔒</code>
           </div>
         </div>
-        <div class="sim-control-item">
-          <span>Guide Opacity:</span>
-          <input type="range" id="sim-guide-alpha" min="10" max="100" value="100" class="sim-slider">
-          <b id="sim-guide-alpha-val" class="mono">100%</b>
+
+        <div class="step-item-card">
+          <div class="step-badge-num">02</div>
+          <h3 class="step-heading">Escolha a Plataforma</h3>
+          <p class="step-body-txt">
+            Clique em <strong>TikTok</strong>, <strong>Reels</strong> ou <strong>Shorts</strong>. Os elementos de interface (botões de like, comentários e legenda) aparecem na hora.
+          </p>
+          <div class="step-preview-box">
+            <code>Overlays Calibrados para 2025 ✓</code>
+          </div>
         </div>
-        <div class="sim-control-item">
-          <span>Overlay Opacity:</span>
-          <input type="range" id="sim-art-alpha" min="10" max="100" value="95" class="sim-slider">
-          <b id="sim-art-alpha-val" class="mono">95%</b>
+
+        <div class="step-item-card">
+          <div class="step-badge-num">03</div>
+          <h3 class="step-heading">Edite no Zone Studio Pro</h3>
+          <p class="step-body-txt">
+            Precisa de uma caixa para legenda, webcam ou enquadramento personalizado? Abra o Studio, use a Caneta Bézier (<kbd>P</kbd>) ou Formas e desenhe livremente.
+          </p>
+          <div class="step-preview-box">
+            <code>Caneta com Curvatura Suave 🌊</code>
+          </div>
         </div>
+
+        <div class="step-item-card">
+          <div class="step-badge-num">04</div>
+          <h3 class="step-heading">Gerencie com o Botão Direito</h3>
+          <p class="step-body-txt">
+            Clique com o <strong>botão direito</strong> nos seus presets para <strong>Editar no Studio</strong>, <strong>Duplicar</strong> ou <strong>Exportar em .JSON</strong> para sua equipe.
+          </p>
+          <div class="step-preview-box">
+            <code>Menu de Contexto Integrado 🖱️</code>
+          </div>
+        </div>
+
       </div>
 
     </div>
   </section>
 
   <!-- ── Bento Grid de Recursos Principais ── -->
-  <section id="features" class="features-section">
-    <div class="section-header text-center">
-      <span class="section-eyebrow">BUILT FOR PRO EDITORS</span>
-      <h2 class="section-title">Everything You Need for Flawless Framing</h2>
-      <p class="section-desc">Designed to solve real post-production headaches inside Adobe Premiere Pro.</p>
-    </div>
-
-    <div class="bento-grid">
+  <section id="recursos" class="bento-section">
+    <div class="container">
       
-      <!-- Card 1: 1-Click Live Overlay -->
-      <div class="bento-card col-span-2">
-        <div class="card-icon-badge cyan">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      <div class="section-head">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          <span>RECURSOS PROFISSIONAIS</span>
         </div>
-        <h3 class="card-title">1-Click Live Sync & Locked Track</h3>
-        <p class="card-text">
-          Hit ON AIR and Safe Zones automatically detects your sequence resolution, generates a high-precision pixel-perfect PNG overlay, places it on an isolated top video track, and locks it. Zero accidental cuts or moves.
-        </p>
-        <div class="card-code-preview">
-          <code>Sequence: 3840×2160 (4K UHD) ➔ Auto-synced to V4 (Locked 🔒)</code>
-        </div>
+        <h2 class="title-lg">Tudo o que Você Precisa para um Corte Impecável</h2>
+        <p class="desc-lg">Desenvolvido para resolver dores reais de editores de vídeo, agências e criadores de conteúdo.</p>
       </div>
 
-      <!-- Card 2: Zone Studio Pro -->
-      <div class="bento-card col-span-2 highlight-border">
-        <div class="card-icon-badge yellow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><circle cx="11" cy="11" r="2"/></svg>
+      <div class="bento-layout">
+        
+        <div class="bento-box span-2 accent-box">
+          <div class="bento-icon-3d cyan">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h3 class="bento-title">Sincronização ao Vivo em Faixa Travada</h3>
+          <p class="bento-desc">
+            Ao ativar o <strong>ON AIR</strong>, o Safe Zones gera um PNG transparente de alta fidelidade e posiciona no topo da timeline em faixa bloqueada. Sem mexer nos seus cortes ou áudios.
+          </p>
+          <div class="step-preview-box">
+            <code>Zero queda de FPS · Playback 100% fluido em 4K e 8K</code>
+          </div>
         </div>
-        <h3 class="card-title">Zone Studio Pro (Vector Editor In-Panel)</h3>
-        <p class="card-text">
-          Need a custom subtitle box, webcam framing, sponsor card bounds or circular facecam? Launch the embedded Photoshop-like vector workbench with Pen Tool, Bézier curves, Snapping, Layers, and Fullscreen mode.
-        </p>
-        <div class="studio-tools-mini-grid">
-          <span class="tool-chip">✒️ Pen Bézier</span>
-          <span class="tool-chip">⬛ Rectangle</span>
-          <span class="tool-chip">🔲 Rounded Box</span>
-          <span class="tool-chip">⭕ Circle</span>
-          <span class="tool-chip">🎯 Reticle</span>
-          <span class="tool-chip">📐 Polygons</span>
-          <span class="tool-chip">📏 Ruler</span>
-          <span class="tool-chip">🧲 Smart Snapping</span>
-        </div>
-      </div>
 
-      <!-- Card 3: Social Calibrations -->
-      <div class="bento-card">
-        <div class="card-icon-badge magenta">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        <div class="bento-box">
+          <div class="bento-icon-3d yellow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+          <h3 class="bento-title">Calibração de Redes 2025</h3>
+          <p class="bento-desc">
+            Margens exatas para TikTok, Instagram Reels, YouTube Shorts, Stories e Facebook. Nunca mais tenha texto coberto pela barra de áudio.
+          </p>
         </div>
-        <h3 class="card-title">TikTok, Reels & Shorts 2025 Calibrated</h3>
-        <p class="card-text">
-          Keep your captions, faces, and CTA stickers out of the danger zones (likes, comments, share buttons, descriptions and profile icons).
-        </p>
-      </div>
 
-      <!-- Card 4: Cinematic Aspect Ratios & Letterbox -->
-      <div class="bento-card">
-        <div class="card-icon-badge green">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="8" x2="22" y2="8"/><line x1="2" y1="16" x2="22" y2="16"/></svg>
+        <div class="bento-box">
+          <div class="bento-icon-3d green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="8" x2="22" y2="8"/><line x1="2" y1="16" x2="22" y2="16"/></svg>
+          </div>
+          <h3 class="bento-title">Letterbox & Cinema 2.39:1</h3>
+          <p class="bento-desc">
+            Simule enquadramentos Anamórficos 2.39:1, Cinema 1.85:1, 4:3 retrô e 1:1 quadrado com barras pretas e opacidade ajustável.
+          </p>
         </div>
-        <h3 class="card-title">Cinematic Letterbox & Matte Masks</h3>
-        <p class="card-text">
-          Preview 2.39:1 Anamorphic Cinemascope, 1.85:1 Academy Flat, 16:9, 4:3 and 1:1 on any timeline with custom opacity and border guide lines.
-        </p>
-      </div>
 
-      <!-- Card 5: Mathematical Composition -->
-      <div class="bento-card">
-        <div class="card-icon-badge blue">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+        <div class="bento-box">
+          <div class="bento-icon-3d magenta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+          </div>
+          <h3 class="bento-title">Grades Matemáticas de Composição</h3>
+          <p class="bento-desc">
+            Regra dos Terços 3x3, Proporção Áurea (Phi), Simetria Dinâmica Diagonal e Margens Broadcast Safe (EBU / SMPTE).
+          </p>
         </div>
-        <h3 class="card-title">Mathematical Composition Guides</h3>
-        <p class="card-text">
-          Rule of Thirds 3x3, Golden Ratio (Phi 1:1.618), Dynamic Symmetry Diagonals, Broadcast Title & Action Safe Margins (SMPTE / EBU).
-        </p>
-      </div>
 
-      <!-- Card 6: Shareable JSON Presets -->
-      <div class="bento-card">
-        <div class="card-icon-badge cyan">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+        <div class="bento-box">
+          <div class="bento-icon-3d cyan">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+          </div>
+          <h3 class="bento-title">Exportação de Presets em .JSON</h3>
+          <p class="bento-desc">
+            Compartilhe guias e molduras de branding oficiais com outros editores da equipe. Importação e exportação em 1 clique.
+          </p>
         </div>
-        <h3 class="card-title">Team JSON Presets & Right-Click Context</h3>
-        <p class="card-text">
-          Right-click any custom preset to Edit in Studio, Duplicate, or Export .JSON to share standard branding safe zones across your entire team.
-        </p>
+
       </div>
 
     </div>
   </section>
 
-  <!-- ── Zone Studio Pro Showcase ── -->
-  <section id="studio" class="studio-showcase-section">
-    <div class="studio-showcase-card">
-      <div class="studio-info-col">
-        <span class="section-eyebrow text-yellow">ZONE STUDIO PRO WORKBENCH</span>
-        <h2 class="section-title">A Full Vector Suite Directly Inside Premiere Pro</h2>
-        <p class="section-desc">
-          No need to open Photoshop or Illustrator just to draw a safe boundary, custom lower-third zone or camera frame. Zone Studio Pro runs natively right inside your Premiere Pro panel workspace.
-        </p>
-
-        <ul class="studio-feature-list">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2.5" class="w-4 h-4"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><strong>Vector Pen Tool (P):</strong> Draw anchor nodes with smooth Bézier curvature (0% to 100% tension).</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2.5" class="w-4 h-4"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><strong>Magnetic Smart Snapping (🧲):</strong> Snaps to edges, quarters, and center coordinates automatically.</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2.5" class="w-4 h-4"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><strong>Full Layer Stack:</strong> Rename, reorder (▲/▼), toggle visibility (👁️), lock (🔒), or delete.</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2.5" class="w-4 h-4"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><strong>Pixel Nudge:</strong> Use arrow keys (`↑`, `↓`, `←`, `→`) to nudge selections with 1px precision.</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2.5" class="w-4 h-4"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><strong>Maximize to Full Window:</strong> Edit on a massive canvas or dock as an independent panel.</span>
-          </li>
-        </ul>
-
-        <div class="mt-6">
-          <a href="#install" class="btn-primary">Get Safe Zones Now — 100% Free</a>
-        </div>
-      </div>
-
-      <div class="studio-mockup-col">
-        <div class="studio-window-frame">
-          <div class="frame-header">
-            <div class="window-dots">
-              <span class="dot red"></span>
-              <span class="dot yellow"></span>
-              <span class="dot green"></span>
-            </div>
-            <span class="frame-title">Safe Zones Studio Pro · 1920×1080 Sequence</span>
-            <span class="frame-badge">CANVAS LIVE</span>
+  <!-- ── Zone Studio Pro Workbench Showcase ── -->
+  <section id="studio" class="studio-workbench-section">
+    <div class="container">
+      
+      <div class="workbench-card">
+        
+        <div>
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            <span>ZONE STUDIO PRO VETORIAL</span>
           </div>
-          <div class="frame-body">
-            <div class="mockup-toolbar">
-              <span class="mock-tool active">V</span>
-              <span class="mock-tool">P</span>
-              <span class="mock-tool">R</span>
-              <span class="mock-tool">U</span>
-              <span class="mock-tool">O</span>
-              <span class="mock-tool">C</span>
-              <span class="mock-tool">Y</span>
-              <span class="mock-tool">G</span>
+          <h2 class="title-lg">Um Estúdio Vetorial Dentro do Premiere</h2>
+          <p class="desc-lg" style="margin: 12px 0;">
+            Sem precisar abrir o Photoshop ou Illustrator para desenhar uma margem de segurança ou moldura de facecam. O Zone Studio Pro roda nativo dentro do Premiere Pro.
+          </p>
+
+          <ul class="workbench-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2.5" class="bullet-icon"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Ferramenta Caneta (P):</strong> Crie nós vetoriais com curvatura suave Bézier (0% a 100% de suavidade).</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2.5" class="bullet-icon"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Alinhamento Magnético Inteligente (🧲):</strong> Encaixe perfeito no centro, bordas e quartos de tela.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2.5" class="bullet-icon"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Pilha Completa de Camadas:</strong> Renomeie, reordene (▲/▼), oculte (👁️), tranque (🔒) ou exclua.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2.5" class="bullet-icon"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Ajuste Pixel a Pixel (Nudge):</strong> Use as setas do teclado para mover camadas com precisão cirúrgica.</span>
+            </li>
+          </ul>
+
+          <div style="margin-top: 24px;">
+            <a href="#instalacao" class="btn-3d btn-3d-cyan">Baixar Safe Zones Grátis</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="plugin-mock-window">
+            <div class="mock-topbar">
+              <span class="mock-brand-title">Zone Studio Pro · Modo Vetor</span>
+              <span class="tag-readout cyan">CANVAS ATIVO</span>
             </div>
-            <div class="mockup-canvas">
-              <div class="mock-box subtitle-box">Subtitle Safe Area (80% Title)</div>
-              <div class="mock-box facecam-box">Facecam 16:9</div>
-              <div class="mock-crosshair"></div>
-            </div>
-            <div class="mockup-inspector">
-              <span class="mock-insp-title">Inspector</span>
-              <div class="mock-prop-row">
-                <span>Stroke</span>
-                <div class="mock-color cyan"></div>
-                <div class="mock-bar"></div>
+            <div style="background:#05070a; height:280px; position:relative; padding:20px; display:flex; flex-direction:column; justify-content:space-between;">
+              <div style="border:1.5px dashed var(--magenta); background:var(--magenta-wash); padding:8px 12px; border-radius:4px; font-family:var(--font-mono); font-size:11px; color:var(--magenta);">
+                Área Segura de Legenda (80% Título)
               </div>
-              <div class="mock-prop-row">
-                <span>Fill</span>
-                <div class="mock-color magenta"></div>
-                <div class="mock-bar"></div>
-              </div>
-              <div class="mock-prop-row">
-                <span>Smooth</span>
-                <div class="mock-bar full"></div>
+              <div style="align-self:flex-end; width:160px; height:90px; border:1.5px dashed var(--yellow); background:var(--yellow-wash); padding:6px 10px; border-radius:4px; font-family:var(--font-mono); font-size:10px; color:var(--yellow);">
+                Facecam 16:9
               </div>
             </div>
           </div>
         </div>
+
       </div>
 
     </div>
   </section>
 
-  <!-- ── Guia de Instalação Rápida (Windows & Mac) ── -->
-  <section id="install" class="install-section">
-    <div class="section-header text-center">
-      <span class="section-eyebrow">QUICK & EASY SETUP</span>
-      <h2 class="section-title">Install in Less Than 60 Seconds</h2>
-      <p class="section-desc">Compatible with Adobe Premiere Pro 2020, 2021, 2022, 2023, 2024, 2025 and CC 2026+.</p>
-    </div>
-
-    <div class="install-container">
+  <!-- ── Guia de Instalação ── -->
+  <section id="instalacao" class="install-section">
+    <div class="container">
       
-      <!-- OS Tabs -->
-      <div class="install-tabs">
-        <button type="button" class="tab-btn active" data-tab="win">🪟 Windows Setup</button>
-        <button type="button" class="tab-btn" data-tab="mac">🍎 macOS Setup (Intel & Apple Silicon)</button>
-        <button type="button" class="tab-btn" data-tab="zxp">📦 Automated ZXP Installer</button>
+      <div class="section-head">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          <span>INSTALAÇÃO EM 60 SEGUNDOS</span>
+        </div>
+        <h2 class="title-lg">Como Instalar no Seu Computador</h2>
+        <p class="desc-lg">Compatível com Adobe Premiere Pro 2020 a 2025+ no Windows e macOS.</p>
       </div>
 
-      <!-- Tab 1: Windows -->
-      <div class="tab-content active" id="tab-win">
-        <div class="install-steps-grid">
+      <div class="install-tabs-row">
+        <button type="button" class="tab-btn-3d active" data-tab="win">🪟 Instalação no Windows</button>
+        <button type="button" class="tab-btn-3d" data-tab="mac">🍎 Instalação no macOS (Intel & Apple Silicon)</button>
+        <button type="button" class="tab-btn-3d" data-tab="zxp">📦 Instalador ZXP / Anastasiy</button>
+      </div>
+
+      <!-- Aba Windows -->
+      <div class="install-pane active" id="tab-win">
+        <div class="install-grid">
           
-          <div class="step-card">
-            <span class="step-number">01</span>
-            <h4 class="step-title">Download & Unzip</h4>
-            <p class="step-desc">Download the repository or release archive and extract the <code>com.alexascencio.safezones</code> folder.</p>
-            <a href="https://github.com/Bielicoman/safezones/archive/refs/heads/main.zip" class="btn-step-download">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-              <span>Download ZIP from GitHub</span>
+          <div class="install-step-card">
+            <span class="install-step-num">01</span>
+            <h4 class="install-step-title">Baixar o Código</h4>
+            <p class="install-step-text">Baixe o arquivo ZIP oficial do repositório no GitHub e descompacte a pasta <code>com.alexascencio.safezones</code>.</p>
+            <a href="https://github.com/Bielicoman/safezones/archive/refs/heads/main.zip" class="btn-3d btn-3d-cyan" style="margin-top:auto; font-size:13px;">
+              <span>Baixar ZIP do Plugin</span>
             </a>
           </div>
 
-          <div class="step-card">
-            <span class="step-number">02</span>
-            <h4 class="step-title">Copy to CEP Folder</h4>
-            <p class="step-desc">Press <code>Win + R</code>, paste the following path and hit Enter. Paste the <code>com.alexascencio.safezones</code> folder there:</p>
-            <div class="code-box">
+          <div class="install-step-card">
+            <span class="install-step-num">02</span>
+            <h4 class="install-step-title">Copiar para a Pasta de Extensões</h4>
+            <p class="install-step-text">Pressione <kbd>Win</kbd> + <kbd>R</kbd>, cole o caminho abaixo e dê Enter. Cole a pasta <code>com.alexascencio.safezones</code> lá:</p>
+            <div class="copy-box">
               <code>%APPDATA%\Adobe\CEP\extensions\</code>
-              <button type="button" class="btn-copy" data-copy="%APPDATA%\Adobe\CEP\extensions\">Copy</button>
+              <button type="button" class="btn-copy-3d" data-copy="%APPDATA%\Adobe\CEP\extensions\">Copiar</button>
             </div>
           </div>
 
-          <div class="step-card">
-            <span class="step-number">03</span>
-            <h4 class="step-title">Enable Unsigned CEP (1-Click)</h4>
-            <p class="step-desc">Run this one-liner in Windows PowerShell (or Command Prompt) to allow developer CEP extensions:</p>
-            <div class="code-box">
+          <div class="install-step-card">
+            <span class="install-step-num">03</span>
+            <h4 class="install-step-title">Liberar Extensões (Comando 1-Clique)</h4>
+            <p class="install-step-text">Abra o PowerShell ou Prompt de Comando e execute o comando abaixo para permitir extensões CEP de desenvolvedor:</p>
+            <div class="copy-box">
               <code>reg add "HKEY_CURRENT_USER\Software\Adobe\CSXS.11" /v PlayerDebugMode /t REG_SZ /d "1" /f</code>
-              <button type="button" class="btn-copy" data-copy='reg add "HKEY_CURRENT_USER\Software\Adobe\CSXS.11" /v PlayerDebugMode /t REG_SZ /d "1" /f'>Copy</button>
+              <button type="button" class="btn-copy-3d" data-copy='reg add "HKEY_CURRENT_USER\Software\Adobe\CSXS.11" /v PlayerDebugMode /t REG_SZ /d "1" /f'>Copiar</button>
             </div>
           </div>
 
-          <div class="step-card">
-            <span class="step-number">04</span>
-            <h4 class="step-title">Open in Premiere Pro</h4>
-            <p class="step-desc">Start Adobe Premiere Pro and open your new panel from the top menu:</p>
-            <div class="path-badge">
-              <span>Window</span> ➔ <span>Extensions</span> ➔ <span>Safe Zones</span>
+          <div class="install-step-card">
+            <span class="install-step-num">04</span>
+            <h4 class="install-step-title">Abrir no Premiere Pro</h4>
+            <p class="install-step-text">Abra o Premiere Pro e acesse o menu superior:</p>
+            <div class="copy-box" style="color:var(--cyan);">
+              <code>Janela ➔ Extensões ➔ Safe Zones</code>
             </div>
           </div>
 
         </div>
       </div>
 
-      <!-- Tab 2: macOS -->
-      <div class="tab-content" id="tab-mac">
-        <div class="install-steps-grid">
+      <!-- Aba Mac -->
+      <div class="install-pane" id="tab-mac">
+        <div class="install-grid">
           
-          <div class="step-card">
-            <span class="step-number">01</span>
-            <h4 class="step-title">Download Repository</h4>
-            <p class="step-desc">Download and unzip the <code>com.alexascencio.safezones</code> directory.</p>
-            <a href="https://github.com/Bielicoman/safezones/archive/refs/heads/main.zip" class="btn-step-download">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-              <span>Download ZIP for Mac</span>
+          <div class="install-step-card">
+            <span class="install-step-num">01</span>
+            <h4 class="install-step-title">Baixar o Plugin</h4>
+            <p class="install-step-text">Baixe o repositório oficial descompactado.</p>
+            <a href="https://github.com/Bielicoman/safezones/archive/refs/heads/main.zip" class="btn-3d btn-3d-cyan" style="margin-top:auto; font-size:13px;">
+              <span>Baixar ZIP para Mac</span>
             </a>
           </div>
 
-          <div class="step-card">
-            <span class="step-number">02</span>
-            <h4 class="step-title">Copy to Mac CEP Folder</h4>
-            <p class="step-desc">Open Finder, press <code>Cmd + Shift + G</code> and navigate to:</p>
-            <div class="code-box">
+          <div class="install-step-card">
+            <span class="install-step-num">02</span>
+            <h4 class="install-step-title">Copiar para a Pasta CEP do Mac</h4>
+            <p class="install-step-text">No Finder, pressione <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> e acesse:</p>
+            <div class="copy-box">
               <code>~/Library/Application Support/Adobe/CEP/extensions/</code>
-              <button type="button" class="btn-copy" data-copy="~/Library/Application Support/Adobe/CEP/extensions/">Copy</button>
+              <button type="button" class="btn-copy-3d" data-copy="~/Library/Application Support/Adobe/CEP/extensions/">Copiar</button>
             </div>
           </div>
 
-          <div class="step-card">
-            <span class="step-number">03</span>
-            <h4 class="step-title">Enable PlayerDebugMode</h4>
-            <p class="step-desc">Run this command in macOS Terminal to enable CEP extensions:</p>
-            <div class="code-box">
+          <div class="install-step-card">
+            <span class="install-step-num">03</span>
+            <h4 class="install-step-title">Ativar PlayerDebugMode no Terminal</h4>
+            <p class="install-step-text">Execute no Terminal do macOS:</p>
+            <div class="copy-box">
               <code>defaults write com.adobe.CSXS.11 PlayerDebugMode 1; defaults write com.adobe.CSXS.12 PlayerDebugMode 1</code>
-              <button type="button" class="btn-copy" data-copy="defaults write com.adobe.CSXS.11 PlayerDebugMode 1; defaults write com.adobe.CSXS.12 PlayerDebugMode 1">Copy</button>
+              <button type="button" class="btn-copy-3d" data-copy="defaults write com.adobe.CSXS.11 PlayerDebugMode 1; defaults write com.adobe.CSXS.12 PlayerDebugMode 1">Copiar</button>
             </div>
           </div>
 
-          <div class="step-card">
-            <span class="step-number">04</span>
-            <h4 class="step-title">Launch Premiere Pro</h4>
-            <p class="step-desc">Open Premiere Pro (native Apple Silicon M1/M2/M3/M4 & Intel compatible):</p>
-            <div class="path-badge">
-              <span>Window</span> ➔ <span>Extensions</span> ➔ <span>Safe Zones</span>
+          <div class="install-step-card">
+            <span class="install-step-num">04</span>
+            <h4 class="install-step-title">Abrir no Premiere Pro</h4>
+            <p class="install-step-text">Inicie o Premiere Pro (nativo Apple Silicon M1/M2/M3/M4 & Intel):</p>
+            <div class="copy-box" style="color:var(--cyan);">
+              <code>Window ➔ Extensions ➔ Safe Zones</code>
             </div>
           </div>
 
         </div>
       </div>
 
-      <!-- Tab 3: ZXP -->
-      <div class="tab-content" id="tab-zxp">
-        <div class="install-steps-grid zxp-grid">
-          <div class="step-card col-span-2">
-            <span class="step-number">📦</span>
-            <h4 class="step-title">Automated ZXP Extension Installer</h4>
-            <p class="step-desc">
-              If you use <strong>Anastasiy’s Extension Manager</strong> or <strong>ZXP Installer</strong>, simply drag and drop the bundled <code>SafeZones.zxp</code> file directly onto the installer window.
+      <!-- Aba ZXP -->
+      <div class="install-pane" id="tab-zxp">
+        <div class="install-grid" style="grid-template-columns:1fr;">
+          <div class="install-step-card">
+            <span class="install-step-num">📦</span>
+            <h4 class="install-step-title">Instaladores Automatizados ZXP</h4>
+            <p class="install-step-text">
+              Caso você utilize o <strong>Anastasiy’s Extension Manager</strong> ou <strong>ZXP Installer</strong>, basta arrastar e soltar o pacote do Safe Zones diretamente na janela do instalador.
             </p>
-            <div class="mt-4 flex gap-3">
-              <a href="https://install.anastasiy.com/" target="_blank" rel="noopener" class="btn-hero-secondary">Get Anastasiy Extension Manager ↗</a>
-              <a href="https://zxpinstaller.com/" target="_blank" rel="noopener" class="btn-hero-secondary">Get ZXP Installer ↗</a>
+            <div style="margin-top:16px; display:flex; gap:12px; flex-wrap:wrap;">
+              <a href="https://install.anastasiy.com/" target="_blank" rel="noopener" class="btn-3d btn-3d-dark">Anastasiy Extension Manager ↗</a>
+              <a href="https://zxpinstaller.com/" target="_blank" rel="noopener" class="btn-3d btn-3d-dark">ZXP Installer ↗</a>
             </div>
           </div>
         </div>
@@ -521,144 +595,156 @@
     </div>
   </section>
 
-  <!-- ── Shortcuts Cheat Sheet ── -->
-  <section id="shortcuts" class="shortcuts-section">
-    <div class="section-header text-center">
-      <span class="section-eyebrow">HOTKEYS & SPEED</span>
-      <h2 class="section-title">Zone Studio Pro Keyboard Shortcuts</h2>
-      <p class="section-desc">Design custom safe margins at lightning speed without lifting your hands from the keyboard.</p>
-    </div>
+  <!-- ── Cheatsheet de Atalhos de Teclado ── -->
+  <section id="atalhos" class="shortcuts-section">
+    <div class="container">
+      
+      <div class="section-head">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          <span>PRODUTIVIDADE MÁXIMA</span>
+        </div>
+        <h2 class="title-lg">Atalhos de Teclado do Zone Studio Pro</h2>
+        <p class="desc-lg">Crie e edite enquadramentos na velocidade do pensamento sem tirar as mãos do teclado.</p>
+      </div>
 
-    <div class="shortcuts-grid">
-      <div class="shortcut-pill"><kbd>V</kbd><span>Selection & Transform</span></div>
-      <div class="shortcut-pill"><kbd>P</kbd><span>Vector Pen Tool (Bézier)</span></div>
-      <div class="shortcut-pill"><kbd>R</kbd><span>Rectangle / Box</span></div>
-      <div class="shortcut-pill"><kbd>U</kbd><span>Rounded Box / Pill</span></div>
-      <div class="shortcut-pill"><kbd>O</kbd><span>Ellipse / Circle</span></div>
-      <div class="shortcut-pill"><kbd>C</kbd><span>Center Crosshair Reticle</span></div>
-      <div class="shortcut-pill"><kbd>Y</kbd><span>Polygon / Triangle</span></div>
-      <div class="shortcut-pill"><kbd>G</kbd><span>Rule of Thirds Grid</span></div>
-      <div class="shortcut-pill"><kbd>L</kbd><span>Guide Line</span></div>
-      <div class="shortcut-pill"><kbd>M</kbd><span>Dimension Ruler</span></div>
-      <div class="shortcut-pill"><kbd>B</kbd><span>Freehand Brush</span></div>
-      <div class="shortcut-pill"><kbd>E</kbd><span>Eraser</span></div>
-      <div class="shortcut-pill"><kbd>T</kbd><span>Text Label</span></div>
-      <div class="shortcut-pill"><kbd>Ctrl</kbd>+<kbd>Z</kbd><span>Undo Action</span></div>
-      <div class="shortcut-pill"><kbd>Ctrl</kbd>+<kbd>Y</kbd><span>Redo Action</span></div>
-      <div class="shortcut-pill"><kbd>Ctrl</kbd>+<kbd>D</kbd><span>Duplicate Layer</span></div>
-      <div class="shortcut-pill"><kbd>Del</kbd><span>Delete Selected</span></div>
-      <div class="shortcut-pill"><kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd><span>1px Nudge Selection</span></div>
-      <div class="shortcut-pill"><kbd>Shift</kbd>+<kbd>Arrows</kbd><span>10px Nudge Selection</span></div>
-      <div class="shortcut-pill"><kbd>Enter</kbd><span>Finish Pen Path</span></div>
+      <div class="shortcuts-grid-3d">
+        <div class="shortcut-card"><kbd>V</kbd><span>Seleção & Mover</span></div>
+        <div class="shortcut-card"><kbd>P</kbd><span>Caneta Vetorial (Bézier)</span></div>
+        <div class="shortcut-card"><kbd>R</kbd><span>Retângulo / Bounding Box</span></div>
+        <div class="shortcut-card"><kbd>U</kbd><span>Caixa Arredondada (Pill)</span></div>
+        <div class="shortcut-card"><kbd>O</kbd><span>Elipse / Círculo</span></div>
+        <div class="shortcut-card"><kbd>C</kbd><span>Retículo / Mira Central</span></div>
+        <div class="shortcut-card"><kbd>Y</kbd><span>Polígono / Triângulo</span></div>
+        <div class="shortcut-card"><kbd>G</kbd><span>Grade dos Terços</span></div>
+        <div class="shortcut-card"><kbd>L</kbd><span>Linha Guia</span></div>
+        <div class="shortcut-card"><kbd>M</kbd><span>Régua de Dimensão (px)</span></div>
+        <div class="shortcut-card"><kbd>B</kbd><span>Pincel Livre</span></div>
+        <div class="shortcut-card"><kbd>E</kbd><span>Borracha</span></div>
+        <div class="shortcut-card"><kbd>T</kbd><span>Texto / Anotação</span></div>
+        <div class="shortcut-card"><kbd>Ctrl+Z</kbd><span>Desfazer (Undo)</span></div>
+        <div class="shortcut-card"><kbd>Ctrl+Y</kbd><span>Refazer (Redo)</span></div>
+        <div class="shortcut-card"><kbd>Ctrl+D</kbd><span>Duplicar Camada</span></div>
+        <div class="shortcut-card"><kbd>Del</kbd><span>Excluir Selecionado</span></div>
+        <div class="shortcut-card"><kbd>Setas</kbd><span>Mover 1px (Nudge)</span></div>
+        <div class="shortcut-card"><kbd>Shift+Setas</kbd><span>Mover 10px</span></div>
+        <div class="shortcut-card"><kbd>Enter</kbd><span>Fechar Traçado da Caneta</span></div>
+      </div>
+
     </div>
   </section>
 
-  <!-- ── FAQ Section ── -->
+  <!-- ── FAQ ── -->
   <section id="faq" class="faq-section">
-    <div class="section-header text-center">
-      <span class="section-eyebrow">COMMON QUESTIONS</span>
-      <h2 class="section-title">Frequently Asked Questions</h2>
-    </div>
-
-    <div class="faq-accordion-stack">
+    <div class="container">
       
-      <div class="faq-item">
-        <button type="button" class="faq-question">
-          <span>Does this slow down Premiere Pro or timeline playback?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <p><strong>Zero slowdown.</strong> Safe Zones does not run heavy effects or adjustment layers. It generates a single ultra-lightweight, transparent PNG overlay and locks it on the top track. Playback remains 100% full-speed at full sequence frame rate.</p>
+      <div class="section-head">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          <span>DÚVIDAS FREQUENTES</span>
         </div>
+        <h2 class="title-lg">Perguntas Frequentes</h2>
       </div>
 
-      <div class="faq-item">
-        <button type="button" class="faq-question">
-          <span>Will the overlay show up when I export my final video?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>Before exporting, simply click the <strong>ON AIR</strong> button in the Safe Zones panel to remove the overlay track with 1 click. Alternatively, you can mute the top video track in your timeline.</p>
+      <div class="faq-stack">
+        
+        <div class="faq-card-3d">
+          <button type="button" class="faq-trigger">
+            <span>O plugin deixa a timeline do Premiere pesada ou com travamento?</span>
+            <span class="faq-arrow">+</span>
+          </button>
+          <div class="faq-content">
+            <p><strong>Zero travamento.</strong> O Safe Zones não utiliza camadas de ajuste ou efeitos pesados de vídeo. Ele cria um arquivo PNG transparente ultra leve e o posiciona em uma faixa bloqueada no topo da timeline. O playback roda a 100% da taxa de quadros nativa da sua sequência.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="faq-item">
-        <button type="button" class="faq-question">
-          <span>Is Safe Zones really 100% free and open-source?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>Yes! It is licensed under the <strong>MIT License</strong>. You can use it freely for personal projects, commercial client work, YouTube videos, feature films, and broadcast television without any fees or attribution required.</p>
+        <div class="faq-card-3d">
+          <button type="button" class="faq-trigger">
+            <span>As linhas guias e overlays vão aparecer no meu vídeo final exportado?</span>
+            <span class="faq-arrow">+</span>
+          </button>
+          <div class="faq-content">
+            <p>Não! Antes de exportar, basta clicar no botão <strong>ON AIR</strong> no painel para desligar e remover a faixa com 1 clique. Ou se preferir, simplesmente oculte a faixa de vídeo no Premiere.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="faq-item">
-        <button type="button" class="faq-question">
-          <span>Does it work on macOS Apple Silicon (M1/M2/M3/M4)?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>Yes! Safe Zones is built on modern Adobe CEP architecture and runs natively on both Apple Silicon (ARM64) and Intel (x86_64) Macs, as well as Windows 10 and Windows 11.</p>
+        <div class="faq-card-3d">
+          <button type="button" class="faq-trigger">
+            <span>O Safe Zones é realmente 100% gratuito e open source?</span>
+            <span class="faq-arrow">+</span>
+          </button>
+          <div class="faq-content">
+            <p>Sim! O Safe Zones é licenciado sob a <strong>Licença MIT</strong>. Você pode utilizar livremente em projetos pessoais, trabalhos comerciais para clientes, canais do YouTube e produções de cinema sem nenhuma cobrança ou taxa.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="faq-item">
-        <button type="button" class="faq-question">
-          <span>How do I export or share custom presets with my editing team?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>Right-click any custom preset chip in the panel and click <strong>Export .JSON</strong>, or use the Preset Library inside Zone Studio Pro. Other editors can import the <code>.szone.json</code> file with 1 click.</p>
+        <div class="faq-card-3d">
+          <button type="button" class="faq-trigger">
+            <span>Funciona no macOS com processadores Apple Silicon (M1, M2, M3, M4)?</span>
+            <span class="faq-arrow">+</span>
+          </button>
+          <div class="faq-content">
+            <p>Sim! Desenvolvido na arquitetura Adobe CEP nativa, o plugin roda perfeitamente tanto em Macs Apple Silicon (ARM64) e Intel, quanto no Windows 10 e Windows 11.</p>
+          </div>
         </div>
+
+        <div class="faq-card-3d">
+          <button type="button" class="faq-trigger">
+            <span>Como compartilho meus presets personalizados com outros editores?</span>
+            <span class="faq-arrow">+</span>
+          </button>
+          <div class="faq-content">
+            <p>Clique com o <strong>botão direito do mouse</strong> sobre qualquer preset no painel e clique em <strong>Exportar .JSON</strong>. Outro editor pode importar o arquivo <code>.szone.json</code> com 1 clique.</p>
+          </div>
+        </div>
+
       </div>
 
     </div>
   </section>
 
-  <!-- ── Call to Action Banner ── -->
-  <section class="cta-banner-section">
-    <div class="cta-card">
-      <div class="cta-glow"></div>
-      <h2 class="cta-headline">Ready to Supercharge Your Premiere Pro Workflow?</h2>
-      <p class="cta-text">Join thousands of video editors, content creators, and post-production studios framing with precision.</p>
-      
-      <div class="cta-btn-row">
-        <a href="#install" class="btn-hero-primary">Download Safe Zones Plugin (Free)</a>
-        <a href="https://github.com/Bielicoman/safezones" target="_blank" rel="noopener" class="btn-hero-secondary">
-          <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-          <span>View GitHub Repository</span>
-        </a>
+  <!-- ── Chamada Final para Ação ── -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box-3d">
+        <h2 class="cta-title">Pronto para elevar o padrão dos seus vídeos?</h2>
+        <p class="cta-sub">Junte-se a editores de vídeo, criadores de conteúdo e produtoras que enquadram com precisão absoluta.</p>
+        <div class="hero-ctas">
+          <a href="#instalacao" class="btn-3d btn-3d-cyan">Baixar Plugin Safe Zones (Grátis)</a>
+          <a href="https://github.com/Bielicoman/safezones" target="_blank" rel="noopener" class="btn-3d btn-3d-dark">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>Ver no GitHub</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ── Footer ── -->
   <footer class="site-footer">
-    <div class="footer-container">
-      <div class="footer-left">
-        <div class="logo-text">
-          <span class="logo-title">SAFE<span class="logo-accent">ZONES</span></span>
-          <span class="logo-tag">for Adobe Premiere Pro</span>
-        </div>
-        <p class="footer-copy">
-          Open source software licensed under the <a href="https://github.com/Bielicoman/safezones/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>.<br>
-          Created by <strong>Alex Ascencio</strong> for video editors worldwide.
+    <div class="container footer-grid">
+      <div class="footer-col-left">
+        <span class="brand-name">SAFE<span class="text-cyan">ZONES</span></span>
+        <p class="footer-author-credit">
+          Software Open Source sob <a href="https://github.com/Bielicoman/safezones/blob/main/LICENSE" target="_blank" rel="noopener">Licença MIT</a>.<br>
+          Criado por <strong>Alex Ascencio</strong> para editores do mundo todo.
         </p>
       </div>
 
-      <div class="footer-links-grid">
-        <div class="footer-col">
-          <span class="footer-col-title">Project</span>
-          <a href="#simulator">Live Web Demo</a>
-          <a href="#features">Features</a>
+      <div class="footer-links-group">
+        <div class="footer-col-nav">
+          <span class="footer-heading">Navegação</span>
+          <a href="#simulador">Simulador Online</a>
+          <a href="#tutorial">Tutorial</a>
+          <a href="#recursos">Recursos</a>
           <a href="#studio">Zone Studio Pro</a>
-          <a href="#install">Installation</a>
+          <a href="#instalacao">Instalação</a>
         </div>
-        <div class="footer-col">
-          <span class="footer-col-title">Community</span>
-          <a href="https://github.com/Bielicoman/safezones" target="_blank" rel="noopener">GitHub Repository</a>
-          <a href="https://github.com/Bielicoman/safezones/issues" target="_blank" rel="noopener">Report Bug / Issue</a>
-          <a href="https://github.com/Bielicoman/safezones/pulls" target="_blank" rel="noopener">Contribute</a>
+        <div class="footer-col-nav">
+          <span class="footer-heading">Comunidade</span>
+          <a href="https://github.com/Bielicoman/safezones" target="_blank" rel="noopener">Repositório GitHub</a>
+          <a href="https://github.com/Bielicoman/safezones/issues" target="_blank" rel="noopener">Reportar Bug / Ideia</a>
+          <a href="https://github.com/Bielicoman/safezones/pulls" target="_blank" rel="noopener">Contribuir</a>
         </div>
       </div>
     </div>
