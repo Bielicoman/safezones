@@ -358,6 +358,24 @@
     return file;
   }
 
+  /* ---------- limpeza de ficheiros temporários ---------- */
+
+  function cleanDiskOverlays(keepFile) {
+    try {
+      if (!fs.existsSync(OUT_DIR)) return;
+      var keepNorm = keepFile ? path.normalize(keepFile).toLowerCase() : null;
+      var files = fs.readdirSync(OUT_DIR);
+      files.forEach(function (f) {
+        if (f.indexOf('SafeZones_') === 0 && f.slice(-4) === '.png') {
+          var full = path.join(OUT_DIR, f);
+          if (!keepNorm || path.normalize(full).toLowerCase() !== keepNorm) {
+            try { fs.unlinkSync(full); } catch (eUnlink) {}
+          }
+        }
+      });
+    } catch (e) {}
+  }
+
   /* ---------- estado / UI ---------- */
 
   function setStatus(msg, isErr) {
@@ -502,6 +520,7 @@
           paintToggle();
           setStatus(currentName() + ' · ' + seq.w + '×' + seq.h +
                     (opts.art ? '' : ' · live'));
+          cleanDiskOverlays(file);
           cb && cb(true);
         });
       });
@@ -517,6 +536,7 @@
       active = false;
       paintToggle();
       if (!silent) setStatus('Overlay removed');
+      cleanDiskOverlays(null);
       cb && cb(true);
     });
   }
@@ -1138,6 +1158,11 @@
     }
 
     window.addEventListener('resize', drawPreview);
+    window.addEventListener('beforeunload', function () {
+      if (!active) {
+        cleanDiskOverlays(null);
+      }
+    });
   }
 
   window.SZ_MAIN = {
@@ -1159,9 +1184,18 @@
     setStatus(currentName());
 
     refreshSeq(function (ok, err) {
-      if (!ok) return setStatus(err || 'No active sequence', true);
+      if (!ok) {
+        cleanDiskOverlays(null);
+        return setStatus(err || 'No active sequence', true);
+      }
       call('sz_isActive()', function (st, msg) {
-        if (st === 'OK') { active = (msg === '1'); paintToggle(); }
+        if (st === 'OK') {
+          active = (msg === '1');
+          paintToggle();
+          if (!active) {
+            cleanDiskOverlays(null);
+          }
+        }
         setStatus(currentName() + ' · ' + seq.w + '×' + seq.h);
       });
     });

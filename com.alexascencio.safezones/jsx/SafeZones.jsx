@@ -90,6 +90,33 @@ function sz_importPNG(bin, absPath) {
     return null;
 }
 
+/* limpa itens do bin "Safe Zones" que nao correspondam a exceptMediaPath.
+   Se exceptMediaPath for nulo/vazio, remove todos os itens e apaga a pasta (bin). */
+function sz_cleanBin(exceptMediaPath) {
+    try {
+        var bin = sz_findBin();
+        if (!bin) return;
+
+        var target = exceptMediaPath ? sz_norm(exceptMediaPath) : '';
+        for (var i = bin.children.numItems - 1; i >= 0; i--) {
+            var it = bin.children[i];
+            try {
+                var p = '';
+                if (it.getMediaPath) {
+                    p = sz_norm(it.getMediaPath());
+                }
+                if (!target || (p && p !== target)) {
+                    it.deleteItem();
+                }
+            } catch (eIt) {}
+        }
+
+        if (bin.children.numItems === 0) {
+            bin.deleteItem();
+        }
+    } catch (eBin) {}
+}
+
 /* ---------- faixas ---------- */
 
 function sz_trackHasOverlay(track) {
@@ -230,6 +257,9 @@ function sz_apply(pngPath) {
 
         sz_setLock(idx, true);
 
+        /* limpa quaisquer itens residuais antigos do bin mantendo apenas o atual */
+        sz_cleanBin(pngPath);
+
         return sz_ok('V' + (idx + 1));
     } catch (err) {
         return sz_err('sz_apply: ' + err.toString());
@@ -245,6 +275,9 @@ function sz_remove() {
 
         /* Remove apenas da faixa que o plugin gerencia, preservando cópias duplicadas */
         var n = sz_removeActiveClip(seq);
+
+        /* Remove todos os itens importados no bin e apaga a pasta Safe Zones do projeto */
+        sz_cleanBin(null);
 
         return sz_ok(String(n));
     } catch (err) {
