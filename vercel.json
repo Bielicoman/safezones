@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/", "destination": "/website/index.html" },
+    { "source": "/css/(.*)", "destination": "/website/css/$1" },
+    { "source": "/js/(.*)", "destination": "/website/js/$1" },
+    { "source": "/art/(.*)", "destination": "/art/$1" },
+    { "source": "/(.*)", "destination": "/website/$1" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-XSS-Protection", "value": "1; mode=block" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ]
+}
