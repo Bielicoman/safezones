@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <title>Safe Zones — Zone Studio Pro</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: var(--ink-0);
+    }
+    #zone-studio-modal {
+      display: flex !important;
+      position: fixed !important;
+      inset: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      z-index: 100 !important;
+    }
+    .studio-workbench {
+      display: flex !important;
+      flex-direction: row !important;
+      height: calc(100vh - 36px) !important;
+    }
+    .studio-toolbar {
+      width: 44px !important;
+      padding: 8px 4px !important;
+      gap: 5px !important;
+    }
+    .tool-btn {
+      width: 34px !important;
+      height: 32px !important;
+    }
+    .tool-btn svg {
+      width: 16px !important;
+      height: 16px !important;
+    }
+    .studio-canvas-area {
+      padding: 24px !important;
+      background: #08090b !important;
+    }
+    .studio-inspector-pro {
+      width: 240px !important;
+      padding: 8px !important;
+      gap: 8px !important;
+    }
+    .inspector-card {
+      padding: 8px !important;
+      gap: 6px !important;
+    }
+    .studio-swatch {
+      height: 18px !important;
+    }
+    .color-picker-mini {
+      width: 20px !important;
+      height: 20px !important;
+    }
+    .layers-scroll-stack {
+      max-height: 180px !important;
+    }
+    .presets-scroll-stack {
+      max-height: 140px !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Janela Completa do Studio Pro -->
+  <div id="zone-studio-modal" class="studio-modal-overlay">
+    <div class="studio-modal-window">
+
+      <!-- Header do Studio Pro -->
+      <header class="studio-head">
+        <div class="studio-title-block">
+          <span class="studio-badge">STUDIO PRO</span>
+          <input type="text" id="studio-preset-name" class="studio-name-input" value="Custom Safe Zone" placeholder="Preset Name">
+        </div>
+
+        <div class="studio-head-actions">
+          <!-- Botões de Undo / Redo -->
+          <div class="studio-history-group">
+            <button type="button" class="btn-head-icon" id="btn-studio-undo" title="Undo (Ctrl+Z)" disabled>↶</button>
+            <button type="button" class="btn-head-icon" id="btn-studio-redo" title="Redo (Ctrl+Y)" disabled>↷</button>
+          </div>
+
+          <!-- Alternador de Fundo -->
+          <div class="bg-toggle-group">
+            <button type="button" class="bg-toggle-btn active" data-bg="check" title="Checkerboard Background">🏁</button>
+            <button type="button" class="bg-toggle-btn" data-bg="black" title="Black Background">⬛</button>
+            <button type="button" class="bg-toggle-btn" data-bg="grey" title="Video Grey Background">🎬</button>
+          </div>
+
+          <button type="button" class="btn-head-icon" id="btn-studio-fullscreen" title="Toggle Fullscreen Screen (F11)">⤢</button>
+          <button type="button" class="btn-studio-apply" id="btn-studio-apply" title="Save and apply in sequence">Apply & Close</button>
+          <button type="button" class="btn-studio-close" id="btn-close-studio" title="Close Window (Esc)">✕</button>
+        </div>
+      </header>
+
+      <!-- Layout do Studio (Toolbar + Canvas Central + Inspector Lateral) -->
+      <div class="studio-workbench">
+
+        <!-- 1. Toolbar Vertical Completa Estilo Photoshop/Canva -->
+        <nav class="studio-toolbar">
+          <button type="button" class="tool-btn active" data-tool="select" title="Select & Transform (V)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3l7 18 3-7 7-3L3 3z"/></svg>
+            <span class="tool-shortcut">V</span>
+          </button>
+          <button type="button" class="tool-btn" data-tool="rect" title="Rectangle / Box (R)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+            <span class="tool-shortcut">R</span>
+          </button>
+          <button type="button" class="tool-btn" data-tool="rounded-rect" title="Rounded Box / Pill Badge (U)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="7"/></svg>
+            <span class="tool-shortcut">U</span>
+          </button>
+          <button type="button" class="tool-btn" data-tool="ellipse" title="Ellipse / Circle (O)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>
+            <span class="tool-shortcut">O</span>
+          </button>
+          <button type="button" class="tool-btn" data-tool="crosshair" title="Center Crosshair Reticle (C)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+            <span class="tool-shortcut">C</span>
+          </button>
+          <button type="button" class="tool-btn" data-tool="polygon" title="Polygon / Triangle (Y)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 22 20 2 20"/></svg>
+            <span class="tool-shortcut">Y</span>
+          </button>
+          <button type="button" class="tool-btn" data-tool="grid" title="Rule of Thirds Grid (G)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg>
+            <span class="tool-shortcut">G</span>
+          </button>
+          <button type="button" class="tool-btn" data-tool="line" title="Guide Line / Ruler (L)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="20" x2="20" y2="4"/></svg>
+            <span class="tool-shortcut">L</span>
+          </button>
+          <button type="button" class="tool-btn" data-tool="ruler" title="Dimension Ruler (M)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20M2 7v10M22 7v10M8 9v6M16 9v6"/></svg>
+            <span class="tool-shortcut">M</span>
+          </button>
+          <button type="button" class="tool-btn" data-tool="pen" title="Pen Tool / Vector Anchor Paths (P)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+            <span class="tool-shortcut">P</span>
+          </button>
+          <button type="button" class="tool-btn" data-tool="brush" title="Freehand Brush (B)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg>
+            <span class="tool-shortcut">B</span>
+          </button>
+          <button type="button" class="tool-btn" data-tool="eraser" title="Eraser (E)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 20H7L3 16C2 15 2 13 3 12L13 2L22 11L18 15"/><path d="M6 19L17 8"/></svg>
+            <span class="tool-shortcut">E</span>
+          </button>
+          <button type="button" class="tool-btn" data-tool="text" title="Text Label (T)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 7 4 4 20 4 20 7"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+            <span class="tool-shortcut">T</span>
+          </button>
+          <button type="button" class="tool-btn" id="btn-import-img-tool" title="Import Image (PNG/SVG)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span class="tool-shortcut">IMG</span>
+            <input type="file" id="studio-file-input" accept=".png,.jpg,.jpeg,.svg" hidden>
+          </button>
+        </nav>
+
+        <!-- 2. Área Central de Canvas Interativo com Zoom -->
+        <main class="studio-canvas-area" id="studio-canvas-container">
+          <canvas id="studio-canvas"></canvas>
+          <div class="studio-zoom-bar">
+            <button type="button" class="btn-zoom" id="btn-zoom-out" title="Zoom Out (-)">−</button>
+            <button type="button" class="btn-zoom" id="btn-zoom-reset" title="Fit to Screen">FIT</button>
+            <button type="button" class="btn-zoom" id="btn-zoom-in" title="Zoom In (+)">+</button>
+            <span id="zoom-level-val" class="zoom-level-tag">100%</span>
+            <button type="button" class="btn-snap on" id="btn-toggle-snap" title="Toggle Magnetic Smart Snapping">🧲 SNAP</button>
+          </div>
+        </main>
+
+        <!-- 3. Painel de Propriedades & Camadas (Inspector) -->
+        <aside class="studio-inspector-pro">
+
+          <!-- Geradores Inteligentes de 1 Clique -->
+          <div class="inspector-card">
+            <span class="card-title">Quick Smart Zones</span>
+            <div class="quick-gen-grid">
+              <button type="button" class="btn-gen-chip" data-gen="subtitles" title="Add 15% Subtitle Safe Zone">💬 Subtitles</button>
+              <button type="button" class="btn-gen-chip" data-gen="facecam" title="Add 16:9 FaceCam Box">📹 FaceCam</button>
+              <button type="button" class="btn-gen-chip" data-gen="reticle" title="Add Center Target Reticle">🎯 Reticle</button>
+              <button type="button" class="btn-gen-chip" data-gen="thirds" title="Add 3x3 Thirds Grid">📐 3x3 Grid</button>
+            </div>
+          </div>
+
+          <!-- Paleta Rápida de Cores -->
+          <div class="inspector-card">
+            <span class="card-title">Color Palette</span>
+            <div class="studio-palette-grid">
+              <button type="button" class="studio-swatch" data-color="#ffffff" style="background:#ffffff" title="White"></button>
+              <button type="button" class="studio-swatch" data-color="#00e5ff" style="background:#00e5ff" title="Electric Cyan"></button>
+              <button type="button" class="studio-swatch" data-color="#ffe600" style="background:#ffe600" title="Neon Yellow"></button>
+              <button type="button" class="studio-swatch" data-color="#ff2d75" style="background:#ff2d75" title="Vivid Magenta"></button>
+              <button type="button" class="studio-swatch" data-color="#4fe0a0" style="background:#4fe0a0" title="Phosphor Green"></button>
+              <button type="button" class="studio-swatch" data-color="#ff7b00" style="background:#ff7b00" title="Orange"></button>
+            </div>
+          </div>
+
+          <!-- Propriedades da Seleção (Fill & Stroke) -->
+          <div class="inspector-card" id="prop-inspector-body">
+            <span class="card-title">Fill & Stroke</span>
+
+            <div class="prop-field-row">
+              <span class="prop-label">Stroke</span>
+              <input type="color" id="prop-stroke-color" class="color-picker-mini" value="#00e5ff">
+              <input type="range" id="prop-stroke-width" min="1" max="15" value="2" class="mini-slider">
+              <b id="prop-stroke-width-val" class="prop-val">2px</b>
+            </div>
+
+            <div class="prop-field-row">
+              <span class="prop-label">Fill</span>
+              <input type="color" id="prop-fill-color" class="color-picker-mini" value="#00e5ff">
+              <input type="range" id="prop-fill-alpha" min="0" max="100" value="25" class="mini-slider">
+              <b id="prop-fill-alpha-val" class="prop-val">25%</b>
+            </div>
+
+            <div class="prop-field-row">
+              <span class="prop-label">Style</span>
+              <div class="style-toggle-group">
+                <button type="button" class="line-style-btn active" data-style="solid" title="Solid Line">———</button>
+                <button type="button" class="line-style-btn" data-style="dashed" title="Dashed Line">- - -</button>
+                <button type="button" class="line-style-btn" data-style="dotted" title="Dotted Line">······</button>
+              </div>
+            </div>
+
+            <div class="prop-field-row" id="prop-smoothness-row">
+              <span class="prop-label">Smooth</span>
+              <input type="range" id="prop-smoothness" min="0" max="100" value="50" class="mini-slider" title="Bézier Curve Smoothness">
+              <b id="prop-smoothness-val" class="prop-val">50%</b>
+            </div>
+          </div>
+
+          <!-- Camadas / Lista de Elementos Criados -->
+          <div class="inspector-card flex-fill">
+            <div class="card-title-row">
+              <span class="card-title">Layers / Elements</span>
+              <button type="button" class="btn-micro" id="btn-new-preset">+ New Preset</button>
+            </div>
+            <div id="studio-layers-stack" class="layers-scroll-stack"></div>
+          </div>
+
+          <!-- Presets Salvos / Import & Export -->
+          <div class="inspector-card">
+            <span class="card-title">Preset Library</span>
+            <div id="studio-presets-table" class="presets-scroll-stack"></div>
+            <div class="io-actions-row">
+              <button type="button" class="btn-io" id="btn-import-json">📥 Import .JSON</button>
+              <input type="file" id="studio-json-input" accept=".json" hidden>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="lib/CSInterface.js"></script>
+  <script src="js/zones.js"></script>
+  <script src="js/draw.js"></script>
+  <script src="js/studio.js"></script>
+  <script>
+    var currentSeq = { w: 1080, h: 1920, name: 'Sequence (1080x1920)' };
+
+    /* Conexão com janela pai ou inicialização independente via JSX */
+    window.SZ_MAIN = {
+      getSeq: function() {
+        if (window.opener && window.opener.SZ_MAIN && window.opener.SZ_MAIN.getSeq) {
+          return window.opener.SZ_MAIN.getSeq();
+        }
+        return currentSeq;
+      },
+      applyCustomPreset: function(p) {
+        if (window.opener && window.opener.SZ_MAIN && window.opener.SZ_MAIN.applyCustomPreset) {
+          window.opener.SZ_MAIN.applyCustomPreset(p);
+        }
+        try {
+          var cs = new CSInterface();
+          cs.evalScript('$._safezones && $._safezones.applyPreset ? $._safezones.applyPreset(' + JSON.stringify(p) + ') : null');
+        } catch (e) {}
+      },
+      updateCustomPresets: function() {
+        if (window.opener && window.opener.SZ_MAIN && window.opener.SZ_MAIN.updateCustomPresets) {
+          window.opener.SZ_MAIN.updateCustomPresets();
+        }
+      }
+    };
+
+    function refreshSequenceFromHost() {
+      try {
+        var cs = new CSInterface();
+        cs.evalScript('$._safezones ? $._safezones.getActiveSequenceInfo() : "{}"', function(res) {
+          try {
+            var info = JSON.parse(res);
+            if (info && info.width && info.height) {
+              currentSeq = { w: info.width, h: info.height, name: info.name || (info.width + 'x' + info.height) };
+              if (window.SZ_STUDIO && window.SZ_STUDIO.open) window.SZ_STUDIO.open();
+            }
+          } catch (e) {}
+        });
+      } catch (e) {}
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      SZ_STUDIO.init();
+      SZ_STUDIO.open();
+      refreshSequenceFromHost();
+
+      /* O botão close fecha a janela/painel */
+      var btnClose = document.getElementById('btn-close-studio');
+      if (btnClose) {
+        btnClose.addEventListener('click', function() {
+          try {
+            var cs = new CSInterface();
+            cs.closeExtension();
+          } catch (e) {
+            window.close();
+          }
+        });
+      }
+
+      window.addEventListener('resize', function() {
+        if (window.SZ_STUDIO && window.SZ_STUDIO.open) {
+          window.SZ_STUDIO.open();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

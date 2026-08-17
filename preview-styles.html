@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="utf-8">
+  <title>Safe Zones — arte</title>
+  <style>
+    body {
+      margin: 0;
+      background: #0d0e10;
+      color: #e7e9eb;
+      font: 13px "Segoe UI", Arial;
+      padding: 22px
+    }
+
+    h1 {
+      font-family: Bahnschrift, "Segoe UI";
+      font-size: 15px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      margin: 0 0 4px
+    }
+
+    h2 {
+      font-family: Bahnschrift, "Segoe UI";
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #7d838a;
+      margin: 26px 0 10px
+    }
+
+    h2 b {
+      color: #4fe0a0;
+      font-weight: 600
+    }
+
+    p.sub {
+      margin: 0 0 6px;
+      color: #63686e;
+      font-size: 11.5px
+    }
+
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px
+    }
+
+    .cell h3 {
+      margin: 0 0 6px;
+      font-family: Bahnschrift, "Segoe UI";
+      font-size: 9.5px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #7d838a
+    }
+
+    .stage {
+      position: relative;
+      width: 230px;
+      height: 409px;
+      line-height: 0;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, .55)
+    }
+
+    .stage img,
+    .stage canvas {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 230px;
+      height: 409px
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Safe Zones — biblioteca completa</h1>
+  <p class="sub">24 ficheiros · seis plataformas · fundo simulado</p>
+  <div id="out"></div>
+  <script>
+    var SETS = [
+      { id: 'reels', name: 'Instagram Reels', n: 6, src: 'teu' },
+      { id: 'tiktok', name: 'TikTok', n: 3, src: 'teu' },
+      { id: 'shorts', name: 'YouTube Shorts', n: 6, src: 'teu' },
+      { id: 'stories', name: 'Instagram Stories', n: 3, src: 'gerado' },
+      { id: 'x-9x16', name: 'X vertical', n: 3, src: 'gerado' },
+      { id: 'fbreels', name: 'Facebook Reels', n: 3, src: 'gerado' }];
+    var NAMES = ['Safe zone', 'Zone + UI', 'UI only', 'Crop bands', 'Crop + UI', 'Full'];
+    var out = document.getElementById('out');
+    SETS.forEach(function (s) {
+      var h = document.createElement('h2');
+      h.innerHTML = s.name + ' — ' + s.n + ' estilos' + (s.src === 'gerado' ? ' <b>· gerado</b>' : '');
+      out.appendChild(h);
+      var g = document.createElement('div'); g.className = 'grid'; out.appendChild(g);
+      for (var i = 1; i <= s.n; i++) {
+        (function (i) {
+          var d = document.createElement('div'); d.className = 'cell';
+          d.innerHTML = '<h3>' + i + ' · ' + NAMES[i - 1] + '</h3>';
+          var st = document.createElement('div'); st.className = 'stage';
+          var c = document.createElement('canvas'); c.width = 230; c.height = 409;
+          var x = c.getContext('2d');
+          var gr = x.createLinearGradient(0, 0, 96, 409);
+          gr.addColorStop(0, '#a8c6dc'); gr.addColorStop(.30, '#eef0ea');
+          gr.addColorStop(.52, '#7b9a5e'); gr.addColorStop(1, '#1e2a18');
+          x.fillStyle = gr; x.fillRect(0, 0, 230, 409);
+          x.fillStyle = 'rgba(30,24,16,.5)'; x.beginPath(); x.ellipse(115, 250, 68, 54, 0, 0, 6.3); x.fill();
+          var im = document.createElement('img'); im.src = 'art/' + s.id + '-' + i + '.png';
+          st.appendChild(c); st.appendChild(im); d.appendChild(st); g.appendChild(d);
+        })(i);
+      }
+    });
+  </script>
+</body>
+
+</html>

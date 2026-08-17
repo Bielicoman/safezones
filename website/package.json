@@ -1,0 +1,17 @@
+{
+  "name": "safe-zones-website",
+  "version": "1.0.0",
+  "description": "Official website and live safe zones simulator for Adobe Premiere Pro Safe Zones plugin",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "adobe-premiere-pro",
+    "safe-zones",
+    "video-editing",
+    "cep-extension",
+    "open-source"
+  ],
+  "author": "Alex Ascencio",
+  "license": "MIT"
+}
