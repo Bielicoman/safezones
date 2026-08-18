@@ -10,7 +10,7 @@
     const DEFAULT_CONFIG = {
         pluginId: "com.alexascencio.safezones",
         pluginName: "Safe Zones",
-        currentVersion: "1.0.0",
+        currentVersion: "1.4.0",
         manifestUrl: "https://raw.githubusercontent.com/Bielicoman/safezones/main/version.json",
         fallbackUrl: "https://github.com/Bielicoman/safezones/releases/latest",
         checkDelayMs: 2500
