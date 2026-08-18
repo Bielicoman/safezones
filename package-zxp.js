@@ -154,12 +154,18 @@ function createZxp(sourceDir, outputFile) {
 
 try {
   createZxp(extDir, zxpOutput);
+  
+  const zipOutput = path.join(__dirname, 'SafeZones.zip');
+  fs.copyFileSync(zxpOutput, zipOutput);
+
   if (!fs.existsSync(webDlDir)) fs.mkdirSync(webDlDir, { recursive: true });
   fs.copyFileSync(zxpOutput, path.join(webDir, 'SafeZones.zxp'));
+  fs.copyFileSync(zxpOutput, path.join(webDir, 'SafeZones.zip'));
   fs.copyFileSync(zxpOutput, path.join(webDlDir, 'SafeZones.zxp'));
+  fs.copyFileSync(zxpOutput, path.join(webDlDir, 'SafeZones.zip'));
 
   const sizeKb = (fs.statSync(zxpOutput).size / 1024).toFixed(1);
-  console.log(`✅ SafeZones.zxp criado e sincronizado com sucesso! (${sizeKb} KB)`);
+  console.log(`✅ SafeZones.zxp e SafeZones.zip criados e sincronizados com sucesso! (${sizeKb} KB)`);
 } catch (err) {
   console.error('❌ Erro:', err.message);
 }

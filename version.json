@@ -1,15 +1,14 @@
 {
   "pluginId": "com.alexascencio.safezones",
   "name": "Safe Zones",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "minPremiereVersion": "2020",
   "releaseDate": "2026-08-18",
   "downloadUrl": "https://raw.githubusercontent.com/Bielicoman/safezones/main/SafeZones.zxp",
   "zipUrl": "https://github.com/Bielicoman/safezones/archive/refs/heads/main.zip",
   "mandatory": false,
   "changelog": [
-    "Safe Zones Pro v1.4.0 ZXP",
-    "Suporte nativo a Premiere Pro 2020-2026+"
+    "Sincronização de pacotes ZXP e ZIP no site"
   ],
-  "fullName": "Safe Zones 1.4.0"
+  "fullName": "Safe Zones 1.4.1"
 }
