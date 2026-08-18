@@ -4,14 +4,12 @@
   "version": "1.0.0",
   "minPremiereVersion": "2020",
   "releaseDate": "2026-08-18",
-  "downloadUrl": "https://github.com/Bielicoman/safezones/releases/latest/download/SafeZones.zxp",
+  "downloadUrl": "https://raw.githubusercontent.com/Bielicoman/safezones/main/SafeZones.zxp",
   "zipUrl": "https://github.com/Bielicoman/safezones/archive/refs/heads/main.zip",
   "mandatory": false,
   "changelog": [
-    "Overlays táteis precisos para TikTok, Reels, Shorts e YouTube TV",
-    "Geração dinâmica de guias vetoriais em alta resolução",
-    "Estúdio interativo de posicionamento seguro para criadores",
-    "Integração nativa com Adobe Premiere Pro 2020 a 2026+"
+    "Lançamento oficial ZXP Universal",
+    "Compatibilidade total Premiere Pro 2020 a 2026+"
   ],
   "fullName": "Safe Zones 1.0.0"
 }
