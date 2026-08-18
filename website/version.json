@@ -2,13 +2,25 @@
   "pluginId": "com.alexascencio.safezones",
   "name": "Safe Zones",
   "version": "1.4.1",
-  "minPremiereVersion": "2020",
+  "channel": "stable",
+  "author": "Alex Ascencio",
+  "type": "CEP",
+  "host": "PPRO",
+  "hostVersionMin": "14.0",
+  "hostVersionMax": "100.0",
+  "platform": [
+    "Windows",
+    "macOS"
+  ],
   "releaseDate": "2026-08-18",
-  "downloadUrl": "https://raw.githubusercontent.com/Bielicoman/safezones/main/SafeZones.zxp",
+  "downloadUrl": "https://github.com/Bielicoman/safezones/raw/main/SafeZones.zxp",
   "zipUrl": "https://github.com/Bielicoman/safezones/archive/refs/heads/main.zip",
   "mandatory": false,
-  "changelog": [
-    "Sincronização de pacotes ZXP e ZIP no site"
-  ],
-  "fullName": "Safe Zones 1.4.1"
+  "changelog": {
+    "1.4.1": "Novo site com simulador de enquadramento interativo",
+    "1.4.0": "Formato 2:1 adicionado (X/Twitter)",
+    "1.3.0": "Opacidade e cor das guias personalizáveis",
+    "1.2.0": "Presets de plataforma (Stories, Reels, YouTube)",
+    "1.1.0": "Regra dos terços interativa"
+  }
 }

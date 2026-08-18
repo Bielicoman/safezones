@@ -13,10 +13,10 @@
     zoom: 1.0,
     bgMode: 'check', /* 'check' | 'black' | 'grey' */
     tool: 'select',  /* 'select' | 'rect' | 'ellipse' | 'line' | 'brush' | 'eraser' | 'text' */
-    strokeColor: '#00e5ff',
+    strokeColor: '#2f7bff',
     strokeWidth: 2,
     strokeStyle: 'solid', /* 'solid' | 'dashed' | 'dotted' */
-    fillColor: '#00e5ff',
+    fillColor: '#2f7bff',
     fillAlpha: 0.25,      /* 0..1 */
     fontSize: 18,
     selectedId: null,
@@ -36,14 +36,14 @@
     return {
       id: 'custom_' + Date.now(),
       name: name || 'Custom Safe Zone',
-      color: '#00e5ff',
+      color: '#2f7bff',
       elements: [
         {
           id: 'def_margin',
           type: 'rect',
           x: 0.10, y: 0.10, w: 0.80, h: 0.80,
-          fillColor: '#00e5ff', fillAlpha: 0.0,
-          strokeColor: '#00e5ff', strokeWidth: 2, strokeStyle: 'solid',
+          fillColor: '#2f7bff', fillAlpha: 0.0,
+          strokeColor: '#2f7bff', strokeWidth: 2, strokeStyle: 'solid',
           name: 'Action Safe (80%)'
         },
         {
@@ -73,16 +73,16 @@
         color: '#ffe600',
         elements: [
           { id: 'e1', type: 'rect', x: 0.08, y: 0.10, w: 0.84, h: 0.78, fillColor: '#ffe600', fillAlpha: 0, strokeColor: '#ffe600', strokeWidth: 2, strokeStyle: 'solid', name: 'Safe Area' },
-          { id: 'e2', type: 'ellipse', x: 0.25, y: 0.18, w: 0.50, h: 0.28, fillColor: '#00e5ff', fillAlpha: 0.20, strokeColor: '#00e5ff', strokeWidth: 1.5, strokeStyle: 'dashed', name: 'Host Face Cam' },
+          { id: 'e2', type: 'ellipse', x: 0.25, y: 0.18, w: 0.50, h: 0.28, fillColor: '#2f7bff', fillAlpha: 0.20, strokeColor: '#2f7bff', strokeWidth: 1.5, strokeStyle: 'dashed', name: 'Host Face Cam' },
           { id: 'e3', type: 'rect', x: 0.08, y: 0.74, w: 0.84, h: 0.14, fillColor: '#ff2d75', fillAlpha: 0.35, strokeColor: '#ff2d75', strokeWidth: 1.5, strokeStyle: 'solid', name: 'Lower Third / GC' }
         ]
       },
       {
         id: 'preset_story',
         name: 'Clean Stories & Shorts',
-        color: '#00e5ff',
+        color: '#2f7bff',
         elements: [
-          { id: 'e4', type: 'rect', x: 0.08, y: 0.14, w: 0.84, h: 0.68, fillColor: '#00e5ff', fillAlpha: 0, strokeColor: '#00e5ff', strokeWidth: 2, strokeStyle: 'solid', name: 'Title Safe' },
+          { id: 'e4', type: 'rect', x: 0.08, y: 0.14, w: 0.84, h: 0.68, fillColor: '#2f7bff', fillAlpha: 0, strokeColor: '#2f7bff', strokeWidth: 2, strokeStyle: 'solid', name: 'Title Safe' },
           { id: 'e5', type: 'line', x1: 0, y1: 0.333, x2: 1, y2: 0.333, strokeColor: '#ffffff', strokeWidth: 1, strokeStyle: 'dotted', name: 'Upper Third' },
           { id: 'e6', type: 'line', x1: 0, y1: 0.666, x2: 1, y2: 0.666, strokeColor: '#ffffff', strokeWidth: 1, strokeStyle: 'dotted', name: 'Lower Third' }
         ]
@@ -286,7 +286,7 @@
       if (state.penCursor) {
         /* Linha guia elástica até o cursor */
         ctx.save();
-        ctx.strokeStyle = state.strokeColor || '#00e5ff';
+        ctx.strokeStyle = state.strokeColor || '#2f7bff';
         ctx.lineWidth = Math.max(1, (state.strokeWidth || 2) * s);
         ctx.setLineDash([4 * s, 3 * s]);
         ctx.beginPath();
@@ -316,7 +316,7 @@
       var bx = b.x * W, by = b.y * H, bw = b.w * W, bh = b.h * H;
 
       ctx.save();
-      ctx.strokeStyle = '#00e5ff';
+      ctx.strokeStyle = '#2f7bff';
       ctx.lineWidth = 1.2;
       ctx.setLineDash([4, 3]);
       ctx.strokeRect(bx, by, bw, bh);
@@ -325,7 +325,7 @@
       var handles = getHandles(b, W, H);
       ctx.setLineDash([]);
       ctx.fillStyle = '#ffffff';
-      ctx.strokeStyle = '#00e5ff';
+      ctx.strokeStyle = '#2f7bff';
       ctx.lineWidth = 1.5;
       var hSize = 6;
       for (var k in handles) {
@@ -700,8 +700,8 @@
     var inSmoothVal = document.getElementById('prop-smoothness-val');
     var rowSmooth = document.getElementById('prop-smoothness-row');
 
-    if (inStroke) inStroke.value = curStroke || '#00e5ff';
-    if (inFill) inFill.value = curFill || '#00e5ff';
+    if (inStroke) inStroke.value = curStroke || '#2f7bff';
+    if (inFill) inFill.value = curFill || '#2f7bff';
     if (inFillAlpha) inFillAlpha.value = curFillAlpha;
     if (inFillAlphaVal) inFillAlphaVal.textContent = curFillAlpha + '%';
     if (inStrokeWidth) inStrokeWidth.value = curStrokeWidth;
@@ -820,7 +820,7 @@
       card.className = 'preset-card-item' + (presetItem.id === state.preset.id ? ' active' : '');
       card.innerHTML =
         '<div class="card-left">' +
-          '<i class="preset-color-dot" style="background:' + (presetItem.color || '#00e5ff') + '"></i>' +
+          '<i class="preset-color-dot" style="background:' + (presetItem.color || '#2f7bff') + '"></i>' +
           '<b class="preset-card-name">' + presetItem.name + '</b>' +
         '</div>' +
         '<div class="card-actions">' +
@@ -1112,9 +1112,9 @@
             type: 'rounded-rect',
             x: 0.68, y: 0.75, w: 0.28, h: 0.20,
             radiusRatio: 0.15,
-            fillColor: '#00e5ff',
+            fillColor: '#2f7bff',
             fillAlpha: 0.15,
-            strokeColor: '#00e5ff',
+            strokeColor: '#2f7bff',
             strokeWidth: 2,
             strokeStyle: 'solid',
             name: 'FaceCam (16:9)',

@@ -232,7 +232,7 @@
     activeSlot = null;
     opts.social = preset.id;
     opts.customName = preset.name;
-    opts.guideColor = preset.color || '#00e5ff';
+    opts.guideColor = preset.color || '#2f7bff';
     opts.elements = (preset.elements || []).map(function (el) {
       return JSON.parse(JSON.stringify(el));
     });
@@ -652,7 +652,7 @@
             var b = document.createElement('button');
             var isCur = (opts.social === up.id);
             b.className = 'chip custom-preset-chip' + (isCur ? ' on' : '');
-            b.innerHTML = '<i style="display:inline-block;width:6px;height:6px;border-radius:50%;background:' + (up.color || '#00e5ff') + ';margin-right:4px;"></i><span>' + up.name + '</span>';
+            b.innerHTML = '<i style="display:inline-block;width:6px;height:6px;border-radius:50%;background:' + (up.color || '#2f7bff') + ';margin-right:4px;"></i><span>' + up.name + '</span>';
             b.title = 'Left-click: Apply | Right-click: Edit / Delete (' + up.name + ')';
             b.addEventListener('click', function () {
               if (opts.social === up.id) {

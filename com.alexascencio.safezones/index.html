@@ -5,7 +5,6 @@
   <title>Safe Zones</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/updater.css">
 </head>
 <body>
 
@@ -23,9 +22,10 @@
       <header class="plate-head">
         <div class="brand">
           <div class="brand-logo-icon">
-            <svg viewBox="0 0 24 24" fill="none" width="15" height="15">
-              <path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3" stroke="#00e5ff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="12" cy="12" r="2.5" fill="#00e5ff"/>
+            <svg viewBox="0 0 22 22" fill="none" width="16" height="16">
+              <rect x="1.6" y="1.6" width="18.8" height="18.8" stroke="#eceef1" stroke-width="1.5"/>
+              <rect x="5.6" y="5.6" width="10.8" height="10.8" stroke="#2f7bff" stroke-width="1.5" stroke-dasharray="2.4 2"/>
+              <circle cx="11" cy="11" r="1.6" fill="#e5573c"/>
             </svg>
           </div>
           <span class="mark">Safe<i>Zones</i></span>
@@ -111,10 +111,10 @@
               <div class="field-label">Guide Color</div>
               <div class="color-palette" id="color-palette">
                 <button type="button" class="color-chip on" data-color="#ffffff" title="White (Classic)"><i style="background:#ffffff"></i><span>White</span></button>
-                <button type="button" class="color-chip" data-color="#00e5ff" title="Cyan (Electric)"><i style="background:#00e5ff"></i><span>Cyan</span></button>
+                <button type="button" class="color-chip" data-color="#2f7bff" title="Cyan (Electric)"><i style="background:#2f7bff"></i><span>Cyan</span></button>
                 <button type="button" class="color-chip" data-color="#ffe600" title="Yellow (Neon)"><i style="background:#ffe600"></i><span>Yellow</span></button>
                 <button type="button" class="color-chip" data-color="#ff2d75" title="Magenta (Vivid)"><i style="background:#ff2d75"></i><span>Magenta</span></button>
-                <button type="button" class="color-chip" data-color="#4fe0a0" title="Phosphor (Green)"><i style="background:#4fe0a0"></i><span>Green</span></button>
+                <button type="button" class="color-chip" data-color="#2f7bff" title="Phosphor (Green)"><i style="background:#2f7bff"></i><span>Green</span></button>
               </div>
 
               <div class="control-group">
@@ -373,10 +373,10 @@
             <span class="card-title">Color Palette</span>
             <div class="studio-palette-grid">
               <button type="button" class="studio-swatch" data-color="#ffffff" style="background:#ffffff" title="White"></button>
-              <button type="button" class="studio-swatch" data-color="#00e5ff" style="background:#00e5ff" title="Electric Cyan"></button>
+              <button type="button" class="studio-swatch" data-color="#2f7bff" style="background:#2f7bff" title="Electric Cyan"></button>
               <button type="button" class="studio-swatch" data-color="#ffe600" style="background:#ffe600" title="Neon Yellow"></button>
               <button type="button" class="studio-swatch" data-color="#ff2d75" style="background:#ff2d75" title="Vivid Magenta"></button>
-              <button type="button" class="studio-swatch" data-color="#4fe0a0" style="background:#4fe0a0" title="Phosphor Green"></button>
+              <button type="button" class="studio-swatch" data-color="#2f7bff" style="background:#2f7bff" title="Phosphor Green"></button>
               <button type="button" class="studio-swatch" data-color="#ff7b00" style="background:#ff7b00" title="Orange"></button>
             </div>
           </div>
@@ -387,14 +387,14 @@
 
             <div class="prop-field-row">
               <span class="prop-label">Stroke</span>
-              <input type="color" id="prop-stroke-color" class="color-picker-mini" value="#00e5ff">
+              <input type="color" id="prop-stroke-color" class="color-picker-mini" value="#2f7bff">
               <input type="range" id="prop-stroke-width" min="1" max="15" value="2" class="mini-slider">
               <b id="prop-stroke-width-val" class="prop-val">2px</b>
             </div>
 
             <div class="prop-field-row">
               <span class="prop-label">Fill</span>
-              <input type="color" id="prop-fill-color" class="color-picker-mini" value="#00e5ff">
+              <input type="color" id="prop-fill-color" class="color-picker-mini" value="#2f7bff">
               <input type="range" id="prop-fill-alpha" min="0" max="100" value="25" class="mini-slider">
               <b id="prop-fill-alpha-val" class="prop-val">25%</b>
             </div>
@@ -468,19 +468,29 @@
     text-align: center;
     font-size: 9px;
     font-family: 'Space Mono', monospace, sans-serif;
-    color: rgba(34,197,94,0.25);
+    color: rgba(47,123,255,0.28);
     pointer-events: none;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     z-index: 1;
-  " aria-hidden="true">Safe Zones · Alex Ascencio · v1.4.1</div>
+  " aria-hidden="true">SAFE ZONES · ALEX ASCENCIO · v1.4.1</div>
 
   <script src="lib/CSInterface.js"></script>
   <script src="js/zones.js"></script>
   <script src="js/draw.js"></script>
   <script src="js/studio.js"></script>
-  <script src="js/updater.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/ascencio-updater.js"></script>
+  <script>
+  AscencioUpdater.init({
+    pluginId: 'com.alexascencio.safezones',
+    pluginName: 'Safe Zones',
+    accent: '#2f7bff',
+    currentVersion: '1.4.1',
+    manifestUrl: 'https://raw.githubusercontent.com/Bielicoman/safezones/main/version.json',
+    fallbackUrl: 'https://github.com/Bielicoman/safezones/releases/latest'
+  });
+  </script>
 </body>
 </html>
 

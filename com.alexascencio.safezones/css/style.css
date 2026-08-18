@@ -1,42 +1,46 @@
 /* Safe Zones — Console Central de Instrumento de Estúdio.
  *
  * Direção: Ferramenta de enquadramento e medição de precisão para Premiere Pro.
- * Cores: Charcoal profundo (#0b0c0e - #2b2f35), verde fósforo (#4fe0a0), azul de precisão (#5b9bf0).
- * Banimento Rígido: Sem roxos/violetas.
+ * Cores: Grafite profundo (#0c0e11 - #353d49), cobalto de guia (#2f7bff), vermelhao de perigo (#e5573c).
+ * Mesma identidade "Prancheta" do site, adaptada ao escuro do Premiere.
  * Compatibilidade: CEP / Chromium 99 (flexbox, CSS transitions).
  */
 
 :root {
-  --ink-0: #0b0c0e;
-  --ink-1: #121316;
-  --ink-2: #181a1d;
-  --ink-3: #212428;
-  --ink-4: #2b2f35;
-  --ink-5: #373c44;
+  /* Identidade "Prancheta" — mesma do site safezones (adaptada ao escuro do Premiere) */
+  --ink-0: #0c0e11;
+  --ink-1: #12151a;
+  --ink-2: #171b21;
+  --ink-3: #1f242b;
+  --ink-4: #29303a;
+  --ink-5: #353d49;
 
-  --rule: #2a2e34;
-  --rule-soft: #1f2227;
-  --rule-bright: #3c424b;
+  --rule: #2a313a;
+  --rule-soft: #1e242b;
+  --rule-bright: #3b4450;
 
-  --fg: #e6e8eb;
-  --fg-mid: #969ca4;
-  --fg-dim: #636972;
+  --fg: #eceef1;
+  --fg-mid: #98a0ac;
+  --fg-dim: #646c79;
 
-  --live: #4fe0a0;
-  --live-glow: rgba(79, 224, 160, 0.25);
-  --live-wash: rgba(79, 224, 160, 0.10);
+  /* cobalto = guia / no ar */
+  --live: #2f7bff;
+  --live-glow: rgba(47, 123, 255, 0.28);
+  --live-wash: rgba(47, 123, 255, 0.10);
 
-  --sel: #5b9bf0;
-  --sel-wash: rgba(91, 155, 240, 0.15);
-  --sel-border: rgba(91, 155, 240, 0.45);
-  --warn: #ff8f75;
+  --sel: #6d9dff;
+  --sel-wash: rgba(109, 157, 255, 0.15);
+  --sel-border: rgba(109, 157, 255, 0.45);
+  /* vermelhao = zona perigosa */
+  --warn: #e5573c;
 
   --font-ui: "Segoe UI Variable Text", "Segoe UI", -apple-system, BlinkMacSystemFont, Tahoma, sans-serif;
   --font-tech: "Bahnschrift", "DIN Alternate", "Segoe UI Semibold", sans-serif;
   --font-mono: "Cascadia Mono", "Consolas", "Lucida Console", monospace;
 
-  --r: 4px;
+  --r: 2px;
 }
+
 
 * { box-sizing: border-box; }
 
@@ -194,10 +198,10 @@ body::-webkit-scrollbar-thumb:hover { background: var(--ink-5); }
 }
 
 .live-pill.is-on {
-  border-color: rgba(79, 224, 160, 0.45);
-  background: rgba(79, 224, 160, 0.08);
+  border-color: rgba(47, 123, 255, 0.45);
+  background: rgba(47, 123, 255, 0.08);
   color: var(--live);
-  box-shadow: 0 0 10px rgba(79, 224, 160, 0.15);
+  box-shadow: 0 0 10px rgba(47, 123, 255, 0.15);
 }
 .live-pill.is-on .led-dot {
   background: var(--live);

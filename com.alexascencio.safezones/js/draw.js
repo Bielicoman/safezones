@@ -10,7 +10,7 @@
       style: 2,          /* 1..6 — variante de arte do preset */
       artAlpha: 1.0,
       guideAlpha: 1.0,   /* 0..1 — opacidade das linhas de guia */
-      guideColor: '#ffffff', /* cor das linhas de guia (#ffffff, #00e5ff, #ffe600, etc) */
+      guideColor: '#ffffff', /* cor das linhas de guia (#ffffff, #2f7bff, #ffe600, etc) */
       labels: true,
       ratios: [],
       letterbox: false,  /* barras fora da proporcao em vez de so contornar */
@@ -244,7 +244,7 @@
   function drawStudioElement(ctx, W, H, el, s, ga) {
     if (el.visible === false) return;
 
-    var strokeColor = el.strokeColor || '#00e5ff';
+    var strokeColor = el.strokeColor || '#2f7bff';
     var strokeWidth = Math.max(1, (el.strokeWidth || 2) * s);
     var strokeAlpha = (el.strokeAlpha !== undefined ? el.strokeAlpha : 0.9) * ga;
     var fillAlpha = (el.fillAlpha !== undefined ? el.fillAlpha : 0.0) * ga;
