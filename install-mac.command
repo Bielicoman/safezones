@@ -1,7 +1,8 @@
 #!/bin/bash
 clear
 echo "========================================================"
-echo "  SAFE ZONES — INSTALADOR AUTOMÁTICO PARA PREMIERE PRO"
+echo "  SAFE ZONES PRO — INSTALADOR PARA PREMIERE PRO (macOS)"
+echo "  Compatível com Premiere Pro 2020, 2021, 2022, 2023, 2024, 2025 e 2026+"
 echo "  Criado por: Alex Ascencio"
 echo "========================================================"
 echo ""
@@ -17,23 +18,23 @@ echo "[2/3] Instalando Safe Zones..."
 if [ -d "$SOURCE_DIR" ]; then
     rm -rf "$TARGET_DIR"
     cp -R "$SOURCE_DIR" "$TARGET_DIR"
+    echo "      ✓ Copiado para Application Support/Adobe/CEP/extensions"
 else
     echo "[ERRO] Pasta com.alexascencio.safezones não encontrada!"
     exit 1
 fi
 
-echo "[3/3] Habilitando extensões no Premiere Pro..."
-defaults write com.adobe.CSXS.9 PlayerDebugMode 1 2>/dev/null
-defaults write com.adobe.CSXS.10 PlayerDebugMode 1 2>/dev/null
-defaults write com.adobe.CSXS.11 PlayerDebugMode 1 2>/dev/null
-defaults write com.adobe.CSXS.12 PlayerDebugMode 1 2>/dev/null
+echo "[3/3] Habilitando PlayerDebugMode no Premiere Pro (CSXS 9 até 20)..."
+for i in {9..20}; do
+    defaults write com.adobe.CSXS.$i PlayerDebugMode 1 2>/dev/null
+done
 
 echo ""
 echo "========================================================"
 echo "  ✅ SAFE ZONES INSTALADO COM SUCESSO NO MAC!"
 echo ""
-echo "  Como abrir no Premiere Pro:"
-echo "  1. Abra o Adobe Premiere Pro"
+echo "  Como abrir no Adobe Premiere Pro:"
+echo "  1. Abra (ou reinicie) o Adobe Premiere Pro"
 echo "  2. Acesse: Window > Extensions > Safe Zones"
 echo "========================================================"
 echo ""
